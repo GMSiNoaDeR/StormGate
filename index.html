@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой современный сайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">  <!-- Подключение внешнего CSS файла -->
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Мой сайт</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Услуги</a>
+        <a href="#">Контакты</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Добро пожаловать на мой сайт!</h1>
+        <p>Здесь будет много интересного.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
