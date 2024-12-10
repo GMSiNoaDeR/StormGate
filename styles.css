@@ -67,3 +67,25 @@ body:hover .side-menu {
 body:hover .menu-button {
     left: 250px; /* Смещаем кнопку, чтобы не перекрывала меню */
 }
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-button {
+        position: fixed;
+        top: 20px;
+        left: 10px;
+    }
+
+    .side-menu {
+        width: 200px;
+        transition: left 0.3s ease;
+    }
+
+    body:hover .side-menu {
+        left: 0;
+    }
+
+    body:hover .menu-button {
+        left: 200px;
+    }
+}
