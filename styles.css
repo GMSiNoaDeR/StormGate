@@ -1,0 +1,132 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #d1b1e0;
+}
+
+a:hover {
+    color: #a8b5f3;
+}
+
+/* Заголовок и меню */
+header {
+    background-color: #2a2a3b;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    color: #9c64a6;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #9c64a6;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li:hover::after {
+    transform: scaleX(1);
+}
+
+nav a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #9c64a6;
+}
+
+/* Главная секция с фоном-картинкой bg.png и эффектом свечения */
+.hero {
+    height: 100vh;
+    background-image: url('bg.png'); /* Ссылка на файл bg.png */
+    background-size: cover; /* Картинка занимает весь экран */
+    background-position: center center; /* Центрирование картинки */
+    position: relative;
+    filter: blur(4px); /* Размытие фона */
+    animation: gradientPulse 20s ease-in-out infinite; /* Медленное дыхание света */
+}
+
+/* Полупрозрачная наложенная область */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Прозрачность для темного наложения */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Эффект свечения фона с более медленным движением */
+@keyframes gradientPulse {
+    0% {
+        filter: brightness(1.1); /* Немного увеличенная яркость */
+    }
+    50% {
+        filter: brightness(0.7); /* Яркость уменьшается */
+    }
+    100% {
+        filter: brightness(1.1); /* Яркость возвращается к увеличенному уровню */
+    }
+}
+
+/* Подвал */
+footer {
+    background-color: #2a2a3b;
+    padding: 20px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 1rem;
+    border-top: 2px solid #9c64a6;
+}
