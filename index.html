@@ -7,39 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn">&#10005;</button>
-        <ul>
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Правила</a></li>
-            <li><a href="#">Персонажи</a></li>
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
+    <div class="side-menu" id="sideMenu">
+        <a href="#">Главная</a>
+        <a href="#">О игре</a>
+        <a href="#">Правила</a>
+        <a href="#">Контакты</a>
     </div>
 
-    <div class="main-content">
-        <div class="menu-button" id="menu-btn">&#9776;</div>
-        <h1>Добро пожаловать в мир Штормовых Врат!</h1>
-        <p>Здесь начинается ваше приключение в магическом мире.</p>
+    <div class="content">
+        <button class="menu-button" id="menuButton">Меню</button>
+        <h1>Добро пожаловать в Штормовые Врата</h1>
+        <p>Здесь начинается ваше приключение!</p>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Штормовые Врата. Все права защищены.</p>
-    </footer>
-
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const sidebar = document.getElementById("sidebar");
-        const closeBtn = document.getElementById("close-btn");
-
-        menuBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-        });
-
-        closeBtn.addEventListener("click", () => {
-            sidebar.classList.remove("open");
-        });
-    </script>
 </body>
 </html>
