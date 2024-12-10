@@ -1,10 +1,2 @@
-const menuBtn = document.getElementById("menu-btn");
-const sideMenu = document.getElementById("side-menu");
-
-menuBtn.addEventListener("click", () => {
-    if (sideMenu.style.left === "0px") {
-        sideMenu.style.left = "-300px";
-    } else {
-        sideMenu.style.left = "0px";
-    }
-});
+// JavaScript здесь минимален, так как наведение на меню реализовано через CSS.
+console.log("Всплывающее меню работает через hover в CSS");
