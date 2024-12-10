@@ -1,33 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой современный сайт</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">  <!-- Подключение внешнего CSS файла -->
+    <title>Штормовые Врата</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="header">
-        <div class="logo">Мой сайт</div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </div>
+    <!-- Верхняя панель -->
+    <header class="header">
+        <div class="logo">Штормовые Врата</div>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Система заклинаний</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Всплывающее боковое меню -->
     <div class="side-menu" id="sideMenu">
         <div class="close-btn" onclick="toggleMenu()">×</div>
         <a href="#">Главная</a>
         <a href="#">О нас</a>
-        <a href="#">Услуги</a>
+        <a href="#">Система заклинаний</a>
         <a href="#">Контакты</a>
     </div>
 
-    <div class="main-content">
-        <h1>Добро пожаловать на мой сайт!</h1>
-        <p>Здесь будет много интересного.</p>
-    </div>
+    <!-- Основной контент -->
+    <main class="content">
+        <h1>Добро пожаловать в мир Штормовых Врат!</h1>
+        <p>Погрузитесь в волшебный мир, где магия оживает, и ваши заклинания имеют реальную силу.</p>
+        <p>Система заклинаний помогает вам создать собственные мощные заклинания.</p>
+        <button onclick="toggleMenu()">Открыть меню</button>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <p>© 2024 Штормовые Врата. Все права защищены.</p>
+        <p>Powered by <a href="https://www.ucoz.ru/">uCoz</a></p>
+    </footer>
 
     <script>
+        // Функция для переключения бокового меню
         function toggleMenu() {
             const sideMenu = document.getElementById('sideMenu');
             sideMenu.classList.toggle('open');
@@ -36,3 +54,4 @@
 
 </body>
 </html>
+
