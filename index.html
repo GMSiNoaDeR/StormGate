@@ -8,54 +8,34 @@
 </head>
 <body>
     <!-- Кнопка вызова меню -->
-    <button class="menu-button" id="menuButton" onclick="toggleMenu()">☰</button>
+    <button id="menu-button" onclick="toggleMenu()">Меню</button>
 
-    <!-- Боковое меню -->
-    <div class="side-menu" id="sideMenu">
-        <a href="index.html">Главная</a>
-        <a href="calculator.html">Калькулятор заклинаний</a>
-        <a href="lore.html">История мира</a>
-        <a href="contact.html">Контакты</a>
+    <!-- Скрытая панель с меню -->
+    <div id="side-menu">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Калькулятор</a></li>
+        </ul>
     </div>
 
-    <!-- Основной контент -->
-    <main class="main-content">
-        <h1>Штормовые Врата</h1>
-        <p>Откройте мир магии и тайн.</p>
-        <button class="magic-button" onclick="openPortal()">Открыть портал</button>
-    </main>
+    <!-- Основное содержимое сайта -->
+    <div class="content">
+        <h1>Добро пожаловать в Штормовые Врата</h1>
+        <p>Здесь начинается ваша магическая история...</p>
+    </div>
 
-    <!-- Нижняя панель -->
-    <footer class="footer">
-        <p>© 2024 Штормовые Врата</p>
-    </footer>
+    <!-- Футер с копирайтом -->
+    <div class="footer">
+        <p>&copy; 2024 Штормовые Врата | <a href="#">Политика конфиденциальности</a></p>
+    </div>
 
     <script>
-        // Переключение бокового меню
         function toggleMenu() {
-            const menu = document.getElementById('sideMenu');
-            const button = document.getElementById('menuButton');
-            const isVisible = menu.classList.toggle('visible');
-            button.style.left = isVisible ? '260px' : '10px';
+            var menu = document.getElementById('side-menu');
+            menu.classList.toggle('open'); // Открытие или закрытие меню
         }
-
-        // Открытие портала
-        function openPortal() {
-            alert('Портал открыт! Добро пожаловать в мир приключений!');
-        }
-
-        // Автоматическое открытие меню при наведении
-        document.addEventListener('mousemove', function (e) {
-            const menu = document.getElementById('sideMenu');
-            const button = document.getElementById('menuButton');
-            if (e.clientX < 50) {
-                menu.classList.add('visible');
-                button.style.left = '260px';
-            } else if (!menu.contains(e.target)) {
-                menu.classList.remove('visible');
-                button.style.left = '10px';
-            }
-        });
     </script>
 </body>
 </html>
