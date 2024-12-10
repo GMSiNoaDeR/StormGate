@@ -86,8 +86,9 @@ nav a:hover {
 .hero {
     height: 100vh;
     background-image: url('bg.png'); /* Используем тот же фон */
-    background-size: cover;
-    background-position: center; /* Центрируем картинку */
+    background-size: 150%; /* Увеличиваем размер фона, чтобы выходил за края */
+    background-position: center center; /* Центрируем картинку */
+    background-attachment: fixed; /* Фон фиксируется при прокрутке */
     position: relative;
     animation: gradientPulse 20s ease-in-out infinite, slideBackground 30s linear infinite; /* Медленное движение фона */
 }
@@ -95,13 +96,13 @@ nav a:hover {
 /* Медленное движение фона */
 @keyframes slideBackground {
     0% {
-        background-position: 0 50%; /* Начальное положение */
+        background-position: -10% 50%; /* Начальное положение */
     }
     50% {
-        background-position: 100% 50%; /* Конечное положение */
+        background-position: 110% 50%; /* Конечное положение */
     }
     100% {
-        background-position: 0 50%; /* Возвращаем к начальному состоянию */
+        background-position: -10% 50%; /* Возвращаем к начальному состоянию */
     }
 }
 
@@ -145,12 +146,12 @@ header, .hero, footer {
 /* Анимация медленного движения фона */
 @keyframes slideBackground {
     0% {
-        background-position: 0 50%; /* Начальное положение */
+        background-position: -10% 50%; /* Начальное положение */
     }
     50% {
-        background-position: 100% 50%; /* Конечное положение */
+        background-position: 110% 50%; /* Конечное положение */
     }
     100% {
-        background-position: 0 50%; /* Возвращаем к начальному состоянию */
+        background-position: -10% 50%; /* Возвращаем к начальному состоянию */
     }
 }
