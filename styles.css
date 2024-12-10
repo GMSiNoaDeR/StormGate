@@ -29,6 +29,26 @@ body {
     left: 0;
 }
 
+.side-menu .menu-content ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.side-menu .menu-content ul li {
+    padding: 10px 20px;
+}
+
+.side-menu .menu-content ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+}
+
+.side-menu .menu-content ul li a:hover {
+    background-color: #16a085;
+}
+
 /* Стили для кнопки меню */
 .menu-btn {
     position: fixed;
@@ -54,7 +74,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Стиль футера */
+/* Стили футера */
 footer {
     position: fixed;
     bottom: 0;
@@ -65,25 +85,4 @@ footer {
     text-align: center;
     padding: 10px;
     font-size: 14px;
-}
-
-/* Стили для ссылок в меню */
-.side-menu .menu-content ul {
-    list-style: none;
-    padding: 20px 0;
-}
-
-.side-menu .menu-content ul li {
-    padding: 10px 20px;
-}
-
-.side-menu .menu-content ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    display: block;
-}
-
-.side-menu .menu-content ul li a:hover {
-    background-color: #16a085;
 }
