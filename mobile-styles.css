@@ -28,16 +28,19 @@ header .logo h1 {
     display: inline-block;
     background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон */
     border-radius: 10px;
-    animation: lightningFlash 3s infinite ease-in-out; /* Эффект молнии */
+    animation: lightningFlash 10s infinite ease-in-out; /* Медленная и редкая вспышка молнии */
 }
 
 /* Анимация молнии */
 @keyframes lightningFlash {
-    0%, 97%, 100% {
+    0%, 90%, 100% {
         text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6;
     }
-    98% {
-        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6;
+    10% {
+        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6; /* Вспышка молнии */
+    }
+    15% {
+        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Сияние после вспышки */
     }
 }
 
