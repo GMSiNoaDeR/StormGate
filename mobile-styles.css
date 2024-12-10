@@ -177,4 +177,7 @@ footer {
 /* Для страницы spellcasting */
 body.spellcasting .hero {
     background-image: url('bgspell.png'); /* Фон для страницы spellcasting */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
