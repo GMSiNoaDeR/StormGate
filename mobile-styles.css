@@ -38,7 +38,8 @@ header .logo h1 {
     }
     5% {
         text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6, 0 0 120px #2f93c4; /* Вспышка молнии с голубыми оттенками */
-        animation: sparks 0.3s ease-out forwards; /* Искры при вспышке */
+        animation: sparks 0.5s ease-out forwards; /* Искры при вспышке */
+        animation-delay: 0.5s; /* Искры немного отстают от вспышки */
     }
     10% {
         text-shadow: 0 0 100px #ffffff, 0 0 200px #a0c8f5, 0 0 300px #9c64a6; /* Интенсивная вспышка */
@@ -60,7 +61,7 @@ header .logo h1 {
         box-shadow: 0 0 10px #e0e0ff, 0 0 20px #ffbbff, 0 0 30px #ffbbff; /* Искры молнии */
     }
     50% {
-        box-shadow: 0 0 10px #ffbbff, 0 0 20px #ffbbff, 0 0 30px #ffffff; /* Рассеивание искр */
+        box-shadow: 0 0 30px #e0e0ff, 0 0 60px #ffffff, 0 0 100px #ffbbff; /* Разлетающиеся искры */
     }
     100% {
         box-shadow: 0 0 0px #ffbbff, 0 0 0px #ffffff; /* Исчезновение искр */
