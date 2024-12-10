@@ -5,20 +5,11 @@ body {
     font-size: 1rem;
     padding: 0;
     margin: 0;
-    background-color: rgb(42, 42, 59); /* Новый цвет фона */
+    background-color: rgb(42, 42, 59); /* Темный фон */
     color: #e0e0e0;
 }
 
-/* Универсальный стиль для полупрозрачных фонов */
-.translucent-bg {
-    background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон на основе нового цвета */
-    backdrop-filter: blur(5px); /* Эффект размытия */
-    border-radius: 10px; /* Радиус углов для визуальной мягкости */
-    padding: 10px; /* Отступы */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Легкая тень */
-}
-
-/* Стили для хедера */
+/* Логотип и заголовок */
 header {
     display: flex;
     flex-direction: column;
@@ -29,30 +20,43 @@ header {
 }
 
 header .logo h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem; /* Увеличенный размер заголовка */
     color: #9c64a6;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6; /* Эффект свечения */
     margin: 0;
-    padding: 5px 10px;
+    padding: 10px 20px;
     display: inline-block;
+    background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон */
+    border-radius: 10px;
+    animation: lightningFlash 3s infinite ease-in-out; /* Эффект молнии */
+}
+
+/* Анимация молнии */
+@keyframes lightningFlash {
+    0%, 97%, 100% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6;
+    }
+    98% {
+        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6;
+    }
 }
 
 /* Кнопка меню */
 .menu-button {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Уменьшенный размер кнопки */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 20px 0 10px 10px; /* Сдвинута ниже */
     align-self: flex-start;
     color: #ffffff;
-    background-color: rgba(156, 100, 166, 0.8); /* Полупрозрачный фон кнопки */
+    background-color: rgba(156, 100, 166, 0.8); /* Полупрозрачный фон */
     box-shadow: 0 0 10px rgba(156, 100, 166, 0.7);
-    padding: 10px 20px;
+    padding: 8px 16px; /* Меньший отступ */
 }
 
 .menu-button:hover {
-    background-color: rgba(168, 181, 243, 0.8); /* Светлее при наведении */
+    background-color: rgba(168, 181, 243, 0.8);
     box-shadow: 0 0 15px rgba(168, 181, 243, 0.9);
 }
 
@@ -103,8 +107,21 @@ nav ul li a:hover {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    animation: slideBackground 360s linear infinite; /* Медленное движение фона */
+    animation: slideBackground 360s linear infinite, parallaxEffect 30s linear infinite; /* Медленное движение фона и параллакс */
     overflow: hidden;
+}
+
+/* Эффект параллакса */
+@keyframes parallaxEffect {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 50% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
 }
 
 /* Медленное движение фона */
@@ -130,13 +147,8 @@ nav ul li a:hover {
     padding: 10px 20px;
     margin: 0;
     width: fit-content;
-}
-
-/* Добавление полупрозрачного фона для hero h2 */
-.hero h2,
-.menu-button,
-nav ul li a {
-    composes: translucent-bg;
+    background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон */
+    border-radius: 10px;
 }
 
 /* Подвал */
