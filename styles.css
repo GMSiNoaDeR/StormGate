@@ -5,113 +5,85 @@
     box-sizing: border-box;
 }
 
-/* Основной стиль тела */
+/* Основной стиль для страницы */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
     color: #333;
-    height: 100%;
+    transition: margin-left 0.3s ease-in-out;
 }
 
-/* Фон и оформление главного контента */
+/* Фон и стили боковой панели */
+.side-menu {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #2c3e50;
+    color: white;
+    transition: 0.3s;
+}
+
+.side-menu:hover {
+    left: 0;
+}
+
+/* Стили для кнопки меню */
+.menu-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    background-color: #2980b9;
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Основной контент */
 .main-content {
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    margin-left: 0;
     padding: 20px;
 }
 
-/* Футер */
+.main-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Стиль футера */
 footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #34495e;
     color: white;
     text-align: center;
     padding: 10px;
+    font-size: 14px;
 }
 
-/* Кнопка открытия меню */
-.menu-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.menu-btn:hover {
-    background-color: #005fa3;
-}
-
-/* Скрытый чекбокс для управления состоянием меню */
-.menu-toggle {
-    display: none;
-}
-
-/* Боковая панель (меню) */
-.side-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #2e3b4e;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-/* Панель меню при открытии */
-.menu-toggle:checked + .side-menu {
-    transform: translateX(0);
-}
-
-/* Контент меню */
-.menu-content ul {
+/* Стили для ссылок в меню */
+.side-menu .menu-content ul {
     list-style: none;
+    padding: 20px 0;
 }
 
-.menu-content li {
-    padding: 15px 0;
+.side-menu .menu-content ul li {
+    padding: 10px 20px;
 }
 
-.menu-content a {
-    color: white;
+.side-menu .menu-content ul li a {
     text-decoration: none;
+    color: white;
     font-size: 18px;
     display: block;
-    padding-left: 10px;
-    transition: background-color 0.2s ease;
 }
 
-.menu-content a:hover {
-    background-color: #0077cc;
-    color: white;
-}
-
-/* Мобильная адаптивность */
-@media (max-width: 768px) {
-    .main-content {
-        margin-left: 0;
-    }
-
-    .side-menu {
-        width: 200px;
-    }
-
-    .menu-btn {
-        left: 10px;
-    }
-}
-
-/* Открытие меню при наведении */
-.main-content:hover ~ .side-menu {
-    transform: translateX(0);
+.side-menu .menu-content ul li a:hover {
+    background-color: #16a085;
 }
