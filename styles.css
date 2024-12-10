@@ -3,104 +3,94 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Georgia', serif;
-    background: linear-gradient(to bottom, #3b4371, #1a2a48, #162338);
     color: #ffffff;
     overflow-x: hidden;
+    background-image: url('images/mystical-background.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover; /* Масштабирование изображения */
+    background-position: center; /* Центрирование изображения */
+    background-attachment: fixed; /* Закрепление фона при прокрутке */
+    background-repeat: no-repeat; /* Убираем повтор */
 }
 
-/* Кнопка вызова меню */
+/* Кнопка меню */
 .menu-button {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #6274f2;
-    color: white;
-    padding: 12px 18px;
-    font-size: 20px;
+    top: 20px;
+    left: 20px; /* Сместили кнопку влево */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
     border: none;
+    padding: 10px 15px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 50%;
-    z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: left 0.3s ease;
+    z-index: 10;
+    transition: transform 0.3s ease;
 }
 
-/* Боковое меню */
-.side-menu {
+/* При открытии меню */
+.menu-button.open {
+    transform: translateX(200px); /* Смещается вместе с меню */
+}
+
+/* Панель меню */
+.sidebar-menu {
     position: fixed;
     top: 0;
-    left: -260px;
-    width: 250px;
+    left: -200px;
+    width: 200px;
     height: 100%;
-    background: linear-gradient(to bottom, #303858, #1a1f36);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
     padding-top: 60px;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.3);
+    z-index: 9;
     transition: left 0.3s ease;
-    z-index: 999;
 }
 
-.side-menu.visible {
+/* Открытое меню */
+.sidebar-menu.open {
     left: 0;
 }
 
-.side-menu a {
+/* Ссылки в меню */
+.sidebar-menu a {
     display: block;
-    padding: 15px;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.side-menu a:hover {
+.sidebar-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Основной контент */
-.main-content {
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-}
-
-.main-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #dde1ff;
-    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-.main-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.magic-button {
-    background-color: #8192f7;
-    color: white;
-    padding: 15px 30px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease;
-}
-
-.magic-button:hover {
-    background-color: #5c6bc0;
-}
-
-/* Нижняя панель */
+/* Нижняя панель (копирайт) */
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(38, 50, 98, 0.95);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
     text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .menu-button {
+        top: 10px;
+        left: 10px;
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .sidebar-menu {
+        width: 100%; /* Меню будет занимать всю ширину на маленьких экранах */
+    }
+
+    .menu-button.open {
+        transform: translateX(100%); /* Смещается на ширину экрана */
+    }
 }
