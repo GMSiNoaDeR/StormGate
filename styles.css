@@ -1,99 +1,56 @@
-/* Общие стили */
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: white; /* Белый фон */
+    color: #333; /* Темный текст для читабельности */
 }
 
-/* Кнопка вызова меню */
-#menu-button {
+.menu-button {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #4e54c8;
+    top: 10px;
+    left: 10px;
+    background: #444;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    z-index: 1100;
-    transition: left 0.3s ease-in-out;
-}
-
-#menu-button:hover {
-    background-color: #8f94fb;
-}
-
-/* Боковая панель меню */
-#side-menu {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    height: 100%;
-    width: 250px;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-y: auto;
-    transition: left 0.3s ease-in-out;
     z-index: 1000;
 }
 
-#side-menu.open {
-    left: 0; /* Открыть меню */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #444;
+    color: white;
+    overflow: hidden;
+    transition: left 0.3s;
+    z-index: 999;
 }
 
-/* Стили ссылок меню */
-#side-menu ul {
+.side-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 
-#side-menu ul li {
+.side-menu li {
     padding: 15px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #555;
 }
 
-#side-menu ul li a {
+.side-menu li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
 }
 
-#side-menu ul li a:hover {
-    color: #8f94fb;
-}
-
-/* Основное содержимое */
-.content {
-    flex: 1;
-    padding: 20px;
-    z-index: 1;
-}
-
-/* Закрепленный футер */
-.footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    z-index: 1;
-}
-
-/* Ссылки в футере */
-.footer a {
-    color: #8f94fb;
-    text-decoration: none;
-}
-
-.footer a:hover {
+.side-menu li a:hover {
     text-decoration: underline;
+}
+
+.content {
+    padding: 20px;
+    margin-top: 50px;
 }
