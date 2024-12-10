@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Штормовые Врата</title>
-
-    <!-- Добавляем уникальные параметры для предотвращения кэширования -->
-    <link rel="stylesheet" href="styles.css?v=20241210"> <!-- версия файла -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Кнопка для открытия меню -->
-    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <!-- Боковая панель -->
+    <!-- Боковая панель (меню) -->
     <div id="side-menu" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
-        <a href="#">Главная</a>
-        <a href="#">Магия и заклинания</a>
-        <a href="#">Контакты</a>
+        <div class="menu-content">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Игровые механики</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="content">
-        <h1>Добро пожаловать в мир Штормовых Врат!</h1>
-        <p>Погрузитесь в магическую атмосферу с настольной ролевой игрой Штормовые Врата. Исследуйте, создавайте заклинания и раскрывайте тайны!</p>
+    <!-- Контент -->
+    <div class="main-content">
+        <button id="menu-btn" class="menu-btn" onclick="toggleMenu()">Меню</button>
+        <div class="content">
+            <h1>Добро пожаловать в мир Штормовых Врат!</h1>
+            <p>Здесь начинается ваше путешествие. Место, где магия и приключения становятся реальностью.</p>
+        </div>
     </div>
 
+    <!-- Футер -->
     <footer>
         <p>&copy; 2024 Штормовые Врата. Все права защищены.</p>
     </footer>
 
-    <!-- Добавляем уникальные параметры для JS, чтобы предотвратить кэширование -->
-    <script src="script.js?v=20241210"></script>
+    <script src="script.js"></script>
 </body>
 </html>
