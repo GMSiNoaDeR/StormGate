@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Штормовые Врата</title>
-    <link rel="stylesheet" href="styles.css?v=20241210">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Кнопка для открытия меню -->
-    <div class="menu-btn">Меню</div>
-
-    <!-- Боковая панель (меню) -->
-    <div class="side-menu">
-        <div class="menu-content">
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Игровые механики</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
-        </div>
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&#10005;</button>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Правила</a></li>
+            <li><a href="#">Персонажи</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
     </div>
 
-    <!-- Контент -->
     <div class="main-content">
+        <div class="menu-button" id="menu-btn">&#9776;</div>
         <h1>Добро пожаловать в мир Штормовых Врат!</h1>
-        <p>Здесь начинается ваше путешествие. Место, где магия и приключения становятся реальностью.</p>
+        <p>Здесь начинается ваше приключение в магическом мире.</p>
     </div>
 
-    <!-- Футер -->
     <footer>
         <p>&copy; 2024 Штормовые Врата. Все права защищены.</p>
     </footer>
 
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("close-btn");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+    </script>
 </body>
 </html>
