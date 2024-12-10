@@ -26,7 +26,11 @@
                 // Для других страниц, сохраняем фон как bg.png
                 document.body.style.backgroundImage = "url('../bg.png')";
             }
-        });
+			
+        }
+		   if (window.location.pathname.includes("spellcasting.html")) {
+        document.body.classList.add("spellcasting");
+    });
     </script>
 </head>
 <body>

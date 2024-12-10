@@ -1,5 +1,3 @@
-/* mobile-styles.css */
-
 /* Основной стиль для мобильных устройств */
 body {
     font-size: 1rem;
@@ -129,7 +127,7 @@ nav ul li a:hover {
 /* Секция hero с фоновым изображением */
 .hero {
     height: 100vh;
-    background-image: url('bg.png'); /* Фоновая картинка */
+    background-image: url('bg.png'); /* Фоновая картинка по умолчанию */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -174,4 +172,9 @@ footer {
     color: #b0b0b0;
     background-color: #2a2a3b;
     border-top: 2px solid #9c64a6;
+}
+
+/* Для страницы spellcasting */
+body.spellcasting .hero {
+    background-image: url('bgspell.png'); /* Фон для страницы spellcasting */
 }
