@@ -9,6 +9,15 @@ body {
     color: #e0e0e0;
 }
 
+/* Универсальный стиль для полупрозрачных фонов */
+.translucent-bg {
+    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон */
+    backdrop-filter: blur(5px); /* Эффект размытия */
+    border-radius: 10px; /* Радиус углов для визуальной мягкости */
+    padding: 10px; /* Отступы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Легкая тень */
+}
+
 /* Стили для хедера */
 header {
     display: flex;
@@ -17,32 +26,33 @@ header {
     padding: 10px;
     width: 100%;
     position: relative;
-    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон для хедера */
-    backdrop-filter: blur(5px); /* Эффект размытия */
 }
 
 header .logo h1 {
     font-size: 1.5rem;
     color: #9c64a6;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+    margin: 0;
+    padding: 5px 10px;
+    display: inline-block;
 }
 
 /* Кнопка меню */
 .menu-button {
-    background-color: #9c64a6;
-    color: #ffffff;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 10px;
     align-self: flex-start;
+    color: #ffffff;
+    background-color: rgba(156, 100, 166, 0.8); /* Полупрозрачный фон кнопки */
     box-shadow: 0 0 10px rgba(156, 100, 166, 0.7);
+    padding: 10px 20px;
 }
 
 .menu-button:hover {
-    background-color: #a8b5f3;
+    background-color: rgba(168, 181, 243, 0.8); /* Светлее при наведении */
     box-shadow: 0 0 15px rgba(168, 181, 243, 0.9);
 }
 
@@ -54,42 +64,46 @@ nav {
 
 nav.active {
     display: block;
+    padding: 10px;
 }
 
 nav ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Вертикальное меню */
     align-items: flex-start;
     gap: 10px;
 }
 
 nav ul li {
     width: 100%;
+    padding: 5px;
 }
 
-nav a {
+nav ul li a {
     font-size: 1.2rem;
-    padding: 10px;
-    display: block;
-    width: 100%;
     color: #d1b1e0;
     text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
     transition: color 0.3s ease;
+    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон пунктов меню */
+    border-radius: 5px;
 }
 
-nav a:hover {
+nav ul li a:hover {
     color: #9c64a6;
 }
 
 /* Секция hero с фоновым изображением */
 .hero {
     height: 100vh;
-    background-image: url('bg.png'); /* Используем тот же фон */
-    background-size: cover; /* Фон растягивается на весь экран */
+    background-image: url('bg.png'); /* Фоновая картинка */
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Центрируем фон */
+    background-position: center;
     position: relative;
-    animation: slideBackground 360s linear infinite; /* Медленное движение фона влево-вправо */
+    animation: slideBackground 360s linear infinite; /* Медленное движение фона */
     overflow: hidden;
 }
 
@@ -109,15 +123,20 @@ nav a:hover {
 /* Текст внутри hero */
 .hero h2 {
     font-size: 1.8rem;
-    padding: 20px;
     text-align: center;
     color: #fff;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
-    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон для текста */
     display: inline-block;
     padding: 10px 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px); /* Размытие фона */
+    margin: 0;
+    width: fit-content;
+}
+
+/* Добавление полупрозрачного фона для hero h2 */
+.hero h2,
+.menu-button,
+nav ul li a {
+    composes: translucent-bg;
 }
 
 /* Подвал */
@@ -129,19 +148,4 @@ footer {
     color: #b0b0b0;
     background-color: #2a2a3b;
     border-top: 2px solid #9c64a6;
-}
-
-/* Параллакс-эффект при прокрутке */
-.hero {
-    background-attachment: fixed;
-}
-
-@media (max-width: 768px) {
-    /* Альтернативное решение для параллакса */
-    body {
-        overflow-x: hidden;
-    }
-    .hero {
-        background-attachment: scroll; /* Фиксируем проблему с background-attachment на мобильных */
-    }
 }
