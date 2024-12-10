@@ -1,97 +1,94 @@
-/* Общие стили */
+/* Общие стили для всего сайта */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Georgia', serif;
     color: #ffffff;
     overflow-x: hidden;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Градиент от синего к фиолетовому */
-    background-size: cover; /* Покрытие всей области */
-    background-repeat: no-repeat; /* Убираем повтор */
-    background-position: center; /* Центрирование */
-    background-attachment: fixed; /* Закрепляем фон при прокрутке */
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Градиентный фон */
+    background-size: cover; /* Масштабируем фон, чтобы он заполнял весь экран */
+    background-position: center; /* Центрируем фон */
+    background-repeat: no-repeat; /* Убираем повторение фона */
+    background-attachment: fixed; /* Фиксируем фон при прокрутке */
 }
 
+/* Панель слева для меню */
+#side-menu {
+    position: fixed;
+    left: -250px; /* Изначально скрыто */
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    transition: left 0.3s ease-in-out; /* Плавное движение при открытии */
+}
 
-/* Кнопка меню */
-.menu-button {
+#side-menu.open {
+    left: 0; /* При открытии меню сдвигаем его на экран */
+}
+
+/* Кнопка открытия меню */
+#menu-button {
     position: fixed;
     top: 20px;
-    left: 20px; /* Сместили кнопку влево */
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
+    left: 20px;
+    background-color: #4e54c8;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 10px 15px;
-    font-size: 18px;
+    border-radius: 5px;
     cursor: pointer;
     z-index: 10;
-    transition: transform 0.3s ease;
 }
 
-/* При открытии меню */
-.menu-button.open {
-    transform: translateX(200px); /* Смещается вместе с меню */
+#menu-button:hover {
+    background-color: #8f94fb; /* При наведении меняем цвет */
 }
 
-/* Панель меню */
-.sidebar-menu {
-    position: fixed;
-    top: 0;
-    left: -200px;
-    width: 200px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #ffffff;
-    padding-top: 60px;
-    z-index: 9;
-    transition: left 0.3s ease;
+/* Основное содержимое */
+.content {
+    padding: 20px;
+    z-index: 1;
 }
 
-/* Открытое меню */
-.sidebar-menu.open {
-    left: 0;
-}
-
-/* Ссылки в меню */
-.sidebar-menu a {
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Нижняя панель (копирайт) */
+/* Закрепленный копирайт внизу экрана */
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
     text-align: center;
     padding: 10px 0;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .menu-button {
-        top: 10px;
-        left: 10px;
-        font-size: 16px;
-        padding: 8px 12px;
-    }
+.footer a {
+    color: #8f94fb;
+    text-decoration: none;
+}
 
-    .sidebar-menu {
-        width: 100%; /* Меню будет занимать всю ширину на маленьких экранах */
-    }
+.footer a:hover {
+    text-decoration: underline;
+}
 
-    .menu-button.open {
-        transform: translateX(100%); /* Смещается на ширину экрана */
-    }
+/* Оформление бокового меню */
+#side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#side-menu ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#side-menu ul li a:hover {
+    color: #8f94fb;
 }
