@@ -1,136 +1,130 @@
-/* mobile-styles.css */
-
-/* Основной стиль для мобильных устройств */
+/* Общие стили */
 body {
-    font-size: 1rem;
-    padding: 0;
     margin: 0;
-    background-color: #1e1e2f;
+    font-family: 'Cormorant Garamond', serif;
+    background: #1e1e2f url('bg.png') no-repeat center center fixed;
+    background-size: cover;
     color: #e0e0e0;
+    overflow-x: hidden;
 }
 
-/* Стили для хедера */
+/* Заголовок "Штормовые Врата" */
+h1 {
+    font-size: 3.5rem;
+    color: #6ec1e4;
+    text-shadow: 0 0 15px #6ec1e4, 0 0 25px #ffffff;
+    animation: electricGlow 5s infinite alternate;
+}
+
+/* Эффект переливающихся букв */
+@keyframes electricGlow {
+    0% {
+        color: #6ec1e4;
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #6ec1e4;
+    }
+    50% {
+        color: #ffffff;
+        text-shadow: 0 0 20px #6ec1e4, 0 0 40px #ffffff;
+    }
+    100% {
+        color: #6ec1e4;
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #6ec1e4;
+    }
+}
+
+/* Меню */
 header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(42, 42, 59, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-header .logo h1 {
-    font-size: 1.5rem;
+.logo h1 {
+    font-size: 2.5rem;
     color: #9c64a6;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+    text-shadow: 0 0 10px #9c64a6, 0 0 20px #ffffff;
+    margin: 0;
 }
 
-/* Кнопка меню */
-.menu-button {
-    background-color: #9c64a6;
-    color: #ffffff;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.menu-button:hover {
-    background-color: #a8b5f3;
-}
-
-/* Скрытое меню */
 nav {
-    display: none;
-    width: 100%;
-}
-
-nav.active {
-    display: block;
+    display: flex;
+    gap: 15px;
 }
 
 nav ul {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-nav ul li {
-    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav a {
-    font-size: 1.2rem;
-    padding: 10px;
-    display: block;
-    width: 100%;
-    color: #d1b1e0;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
-nav a:hover {
-    color: #9c64a6;
+/* Эффект подчеркивания с плавной анимацией и скругленными углами */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #6ec1e4;
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
 }
 
-/* Секция hero с фоновым изображением */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Основной фон */
 .hero {
     height: 100vh;
-    background-image: url('bg.png'); /* Убедитесь, что путь к изображению корректный */
-    background-size: cover; /* Фон растягивается на весь экран */
-    background-repeat: no-repeat;
-    background-position: center; /* Центрируем фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    animation: slideBackground 720s linear infinite; /* Медленное движение фона влево-вправо */
-    overflow: hidden;
-}
-
-/* Медленное движение фона */
-@keyframes slideBackground {
-    0% {
-        background-position: 0% center;
-    }
-    50% {
-        background-position: 100% center;
-    }
-    100% {
-        background-position: 0% center;
-    }
-}
-
-/* Текст внутри hero */
-.hero h2 {
-    font-size: 1.8rem;
-    padding: 20px;
     text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
     color: #fff;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #a8b5f3;
+    margin: 0;
 }
 
 /* Подвал */
 footer {
-    font-size: 0.9rem;
     text-align: center;
-    padding: 10px 0;
-    line-height: 1.4;
+    padding: 20px;
+    background-color: rgba(42, 42, 59, 0.8);
     color: #b0b0b0;
-    background-color: #2a2a3b;
-    border-top: 2px solid #9c64a6;
+    font-size: 0.9rem;
 }
 
-/* Параллакс-эффект при прокрутке */
-.hero {
-    background-attachment: fixed; /* Попытка зафиксировать фон для параллакса */
+footer .credits {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #b0b0b0;
 }
 
+/* Мобильная версия */
 @media (max-width: 768px) {
-    /* Альтернативное решение для параллакса */
-    body {
-        overflow-x: hidden;
-    }
-    .hero {
-        background-attachment: scroll; /* Фиксируем проблему с background-attachment на мобильных */
+    nav {
+        flex-direction: column;
+        gap: 10px;
     }
 }
