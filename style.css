@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Cinzel', serif; /* Волшебный, но читаемый шрифт */
+    font-family: 'Cinzel', serif;
 }
 
 body {
-    background: radial-gradient(circle, #373b60, #1b1e33);
+    background: radial-gradient(circle, #2e3b5f, #1b1e33);
     color: #e0e0f5;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Верхняя панель */
@@ -34,7 +35,22 @@ body {
 .header .menu-toggle {
     font-size: 24px;
     cursor: pointer;
-    display: none; /* Скрыто на больших экранах */
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 15px #4a9dd7;
+    transition: background 0.3s;
+}
+
+.header .menu-toggle:hover {
+    background: #4a9dd7;
 }
 
 /* Боковое меню */
@@ -71,7 +87,7 @@ body {
 
 /* Основной контент */
 .content {
-    margin: 80px 20px 20px 20px;
+    margin: 100px 20px 20px 20px;
     text-align: center;
 }
 
@@ -86,7 +102,7 @@ body {
     margin-bottom: 20px;
 }
 
-button {
+.magic-button {
     padding: 10px 20px;
     background: #4a9dd7;
     border: none;
@@ -94,11 +110,13 @@ button {
     color: #fff;
     cursor: pointer;
     font-size: 18px;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 0 15px #4a9dd7, 0 0 30px #88d8f8;
 }
 
-button:hover {
+.magic-button:hover {
     background: #6cb9f8;
+    transform: scale(1.05);
 }
 
 /* Подвал */
@@ -122,6 +140,14 @@ button:hover {
 /* Мобильная адаптация */
 @media (max-width: 768px) {
     .header .menu-toggle {
-        display: block;
+        font-size: 20px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .magic-button {
+        font-size: 16px;
     }
 }
