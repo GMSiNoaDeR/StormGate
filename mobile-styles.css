@@ -31,25 +31,39 @@ header .logo h1 {
     animation: lightningFlash 10s infinite ease-in-out; /* Медленная и редкая вспышка молнии */
 }
 
-/* Анимация молнии */
+/* Анимация молнии с эффектом искр */
 @keyframes lightningFlash {
     0%, 90%, 100% {
         text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6;
     }
     5% {
-        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Вспышка молнии */
+        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6, 0 0 120px #2f93c4; /* Вспышка молнии с голубыми оттенками */
+        animation: sparks 0.3s ease-out forwards; /* Искры при вспышке */
     }
     10% {
-        text-shadow: 0 0 100px #ffffff, 0 0 200px #e0e0ff, 0 0 300px #9c64a6; /* Интенсивная вспышка */
+        text-shadow: 0 0 100px #ffffff, 0 0 200px #a0c8f5, 0 0 300px #9c64a6; /* Интенсивная вспышка */
     }
     12% {
-        text-shadow: 0 0 150px #ffffff, 0 0 300px #e0e0ff, 0 0 400px #9c64a6; /* Сильная вспышка */
+        text-shadow: 0 0 150px #ffffff, 0 0 300px #80b6e5, 0 0 400px #9c64a6; /* Сильная вспышка */
     }
     15% {
-        text-shadow: 0 0 80px #ffffff, 0 0 160px #e0e0ff, 0 0 240px #9c64a6; /* Постепенное ослабление */
+        text-shadow: 0 0 80px #ffffff, 0 0 160px #a0c8f5, 0 0 240px #9c64a6; /* Постепенное ослабление */
     }
     20% {
         text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Дальнейшее ослабление */
+    }
+}
+
+/* Эффект искр */
+@keyframes sparks {
+    0% {
+        box-shadow: 0 0 10px #e0e0ff, 0 0 20px #ffbbff, 0 0 30px #ffbbff; /* Искры молнии */
+    }
+    50% {
+        box-shadow: 0 0 10px #ffbbff, 0 0 20px #ffbbff, 0 0 30px #ffffff; /* Рассеивание искр */
+    }
+    100% {
+        box-shadow: 0 0 0px #ffbbff, 0 0 0px #ffffff; /* Исчезновение искр */
     }
 }
 
