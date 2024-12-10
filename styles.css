@@ -5,12 +5,13 @@ body {
     font-family: 'Georgia', serif;
     color: #ffffff;
     overflow-x: hidden;
-    background-image: url('images/mystical-background.jpg'); /* Укажите путь к вашему изображению */
-    background-size: cover; /* Масштабирование изображения */
-    background-position: center; /* Центрирование изображения */
-    background-attachment: fixed; /* Закрепление фона при прокрутке */
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Градиент от синего к фиолетовому */
+    background-size: cover; /* Покрытие всей области */
     background-repeat: no-repeat; /* Убираем повтор */
+    background-position: center; /* Центрирование */
+    background-attachment: fixed; /* Закрепляем фон при прокрутке */
 }
+
 
 /* Кнопка меню */
 .menu-button {
