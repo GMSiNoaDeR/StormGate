@@ -1,117 +1,69 @@
-/* Общие стили */
+/* Основной стиль страницы */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a237e, #0d47a1); /* Градиентный темный фон */
-    color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 0;
 }
 
-/* Кнопка меню */
-.menu-button {
+/* Стили для кнопки вызова меню */
+.menu-toggle {
     position: fixed;
     top: 10px;
-    left: 0;
-    background: #1976d2;
-    color: white;
-    padding: 10px 15px;
+    left: 10px;
+    font-size: 30px;
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, background 0.3s;
-    z-index: 1000;
-}
-
-.menu-button:hover {
-    background: #1565c0;
-}
-
-/* Боковое меню */
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 300px;
-    height: 100%;
-    background: #0d47a1;
-    color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 2;
     transition: left 0.3s;
-    z-index: 999;
 }
 
-.side-menu ul {
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-}
-
-.side-menu li {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.side-menu li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.side-menu li a:hover {
-    text-decoration: underline;
-}
-
-/* Контент */
-.content {
-    padding: 20px;
-    flex: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-header h1 {
-    font-size: 36px;
-    color: #e3f2fd;
-    margin: 20px 0;
-}
-
-header p {
-    font-size: 18px;
-    color: #cfd8dc;
-}
-
-main h2 {
-    font-size: 24px;
-    color: #bbdefb;
-    margin: 15px 0;
-}
-
-main p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #e1f5fe;
-}
-
-/* Футер */
-footer {
-    background: #0d47a1;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: sticky;
-    bottom: 0;
-}
-
-/* Анимация открытия меню */
-.side-menu:hover {
+/* Стили для бокового меню */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
     left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
 }
 
-.side-menu:hover ~ .menu-button {
-    transform: translateX(300px);
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Стили для контента */
+.content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+/* Меню при открытом состоянии */
+.side-menu.open {
+    width: 250px;
+}
+
+/* Когда меню открыто, кнопка сдвигается */
+.menu-toggle.open {
+    left: 250px;
 }
