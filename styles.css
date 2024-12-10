@@ -1,19 +1,28 @@
 /* Основной стиль страницы */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background: #0a0a23; /* Темный фэнтезийный фон */
+    color: #dcdcdc; /* Светлый текст */
+    background-image: url('background.jpg'); /* Заменить на фоновое изображение, если нужно */
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Стили для кнопки вызова меню */
 .menu-toggle {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     font-size: 30px;
+    color: #fff;
+    background: #6a4c93; /* Фон кнопки */
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    z-index: 2;
-    transition: left 0.3s;
+    transition: left 0.3s ease-in-out;
+    z-index: 10;
 }
 
 /* Стили для бокового меню */
@@ -21,19 +30,19 @@ body {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
     background-color: #333;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
+    z-index: 9;
 }
 
 .side-menu a {
-    padding: 8px 8px 8px 32px;
+    padding: 10px 15px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 22px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -53,9 +62,21 @@ body {
 
 /* Стили для контента */
 .content {
-    margin-left: 0;
     padding: 20px;
+    margin-left: 0;
     transition: margin-left 0.3s;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.content h1 {
+    font-size: 36px;
+    color: #f1c40f; /* Цвет заголовка */
+}
+
+.content p {
+    font-size: 20px;
+    color: #ecf0f1;
 }
 
 /* Меню при открытом состоянии */
@@ -66,4 +87,35 @@ body {
 /* Когда меню открыто, кнопка сдвигается */
 .menu-toggle.open {
     left: 250px;
+}
+
+/* Стили для футера */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        font-size: 25px;
+        padding: 8px;
+    }
+
+    .side-menu a {
+        font-size: 18px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
 }
