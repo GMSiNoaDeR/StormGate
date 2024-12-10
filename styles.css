@@ -1,56 +1,126 @@
+/* Общие стили */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: white; /* Белый фон */
-    color: #333; /* Темный текст для читабельности */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Градиентный фон */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Кнопка меню */
 .menu-button {
     position: fixed;
     top: 10px;
     left: 10px;
-    background: #444;
+    background: #1976d2;
     color: white;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
     z-index: 1000;
 }
 
+.menu-button:hover {
+    background: #1565c0;
+}
+
+/* Боковое меню */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px;
-    width: 250px;
+    left: -300px;
+    width: 300px;
     height: 100%;
-    background: #444;
+    background: #0d47a1;
     color: white;
     overflow: hidden;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     transition: left 0.3s;
     z-index: 999;
 }
 
 .side-menu ul {
     list-style: none;
-    padding: 0;
+    padding: 20px;
     margin: 0;
-    text-align: left;
 }
 
 .side-menu li {
-    padding: 15px;
-    border-bottom: 1px solid #555;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .side-menu li a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
 
 .side-menu li a:hover {
     text-decoration: underline;
 }
 
+/* Контент */
 .content {
     padding: 20px;
-    margin-top: 50px;
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #0d47a1;
+    margin: 20px 0;
+}
+
+header p {
+    font-size: 18px;
+    color: #555;
+}
+
+main h2 {
+    font-size: 24px;
+    color: #0d47a1;
+    margin: 15px 0;
+}
+
+main p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Футер */
+footer {
+    background: #1565c0;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Анимация и адаптивность */
+@media (hover: hover) {
+    .side-menu:hover {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-button {
+        top: 5px;
+        left: 5px;
+        padding: 8px 12px;
+    }
+
+    .side-menu {
+        width: 250px;
+    }
+
+    main p {
+        font-size: 14px;
+    }
 }
