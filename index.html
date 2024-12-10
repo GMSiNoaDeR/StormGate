@@ -11,41 +11,33 @@
     <!-- Верхняя панель -->
     <header class="header">
         <div class="logo">Штормовые Врата</div>
-        <nav>
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Система заклинаний</a></li>
-            </ul>
-        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
 
     <!-- Всплывающее боковое меню -->
-    <div class="side-menu" id="sideMenu">
-        <div class="close-btn" onclick="toggleMenu()">×</div>
-        <a href="#">Главная</a>
-        <a href="#">О нас</a>
-        <a href="#">Система заклинаний</a>
-        <a href="#">Контакты</a>
-    </div>
+    <nav class="side-menu" id="sideMenu">
+        <a href="#" onclick="toggleMenu()">Главная</a>
+        <a href="#" onclick="toggleMenu()">О нас</a>
+        <a href="#" onclick="toggleMenu()">Система заклинаний</a>
+        <a href="#" onclick="toggleMenu()">Контакты</a>
+    </nav>
 
     <!-- Основной контент -->
     <main class="content">
         <h1>Добро пожаловать в мир Штормовых Врат!</h1>
         <p>Погрузитесь в волшебный мир, где магия оживает, и ваши заклинания имеют реальную силу.</p>
-        <p>Система заклинаний помогает вам создать собственные мощные заклинания.</p>
-        <button onclick="toggleMenu()">Открыть меню</button>
+        <p>Система заклинаний поможет вам создать мощные заклинания, чтобы преобразить ход игры.</p>
+        <button onclick="alert('Портал открыт!')">Открыть портал</button>
     </main>
 
     <!-- Подвал -->
     <footer class="footer">
         <p>© 2024 Штормовые Врата. Все права защищены.</p>
-        <p>Powered by <a href="https://www.ucoz.ru/">uCoz</a></p>
+        <p>Powered by <a href="https://github.com">GitHub Pages</a></p>
     </footer>
 
     <script>
-        // Функция для переключения бокового меню
+        // Функция для открытия и закрытия бокового меню
         function toggleMenu() {
             const sideMenu = document.getElementById('sideMenu');
             sideMenu.classList.toggle('open');
@@ -54,4 +46,3 @@
 
 </body>
 </html>
-
