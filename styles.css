@@ -1,132 +1,109 @@
 /* Общие стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Cormorant Garamond', serif;
-    background-color: #1e1e2f;
-    color: #e0e0e0;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #0e0f18; /* Темный фон */
+    color: #ffffff;
 }
 
-a {
-    text-decoration: none;
-    color: #d1b1e0;
-}
-
-a:hover {
-    color: #a8b5f3;
-}
-
-/* Заголовок и меню */
 header {
-    background-color: #2a2a3b;
-    display: flex;
-    justify-content: space-between;
+    background-color: #1a1c2c;
     padding: 20px;
-    align-items: center;
-    position: relative;
-    z-index: 10;
 }
 
 header .logo h1 {
-    font-size: 2rem;
-    color: #9c64a6;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 nav ul li {
-    position: relative;
+    margin: 0 15px;
 }
 
-nav ul li::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #9c64a6;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-nav ul li:hover::after {
-    transform: scaleX(1);
-}
-
-nav a {
-    color: #fff;
-    font-size: 1.2rem;
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #9c64a6;
+nav ul li a:hover {
+    color: #f39c12; /* Цвет при наведении */
 }
 
-/* Главная секция с фоном-картинкой bg.png и эффектом свечения */
 .hero {
-    height: 100vh;
-    background-image: url('bg.png'); /* Ссылка на файл bg.png */
-    background-size: cover; /* Картинка занимает весь экран */
-    background-position: center center; /* Центрирование картинки */
-    position: relative;
-    filter: blur(4px); /* Размытие фона */
-    animation: gradientPulse 20s ease-in-out infinite; /* Медленное дыхание света */
+    background: url('bg.png') center center/cover no-repeat;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Полупрозрачная наложенная область */
 .hero .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Прозрачность для темного наложения */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
+    text-align: center;
 }
 
 .hero h2 {
-    font-size: 3rem;
-    text-align: center;
+    font-size: 36px;
     margin: 0;
-    font-weight: 700;
-    letter-spacing: 2px;
 }
 
-/* Эффект свечения фона с более медленным движением */
-@keyframes gradientPulse {
-    0% {
-        filter: brightness(1.1); /* Немного увеличенная яркость */
-    }
-    50% {
-        filter: brightness(0.7); /* Яркость уменьшается */
-    }
-    100% {
-        filter: brightness(1.1); /* Яркость возвращается к увеличенному уровню */
-    }
-}
-
-/* Подвал */
+/* Стиль для футера */
 footer {
-    background-color: #2a2a3b;
-    padding: 20px;
+    background-color: #1a1c2c;
+    padding: 10px;
     text-align: center;
-    color: #b0b0b0;
-    font-size: 1rem;
-    border-top: 2px solid #9c64a6;
+}
+
+/* Адаптация для телефонов (меньше 768px) */
+@media (max-width: 768px) {
+    header .logo h1 {
+        font-size: 28px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .hero {
+        height: 200px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+}
+
+/* Адаптация для мобильных телефонов (меньше 480px) */
+@media (max-width: 480px) {
+    header .logo h1 {
+        font-size: 24px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
 }
