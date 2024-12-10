@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Кнопка вызова меню -->
-    <button id="menu-button" onclick="toggleMenu()">☰ Меню</button>
+    <button id="menu-button">☰ Меню</button>
 
     <!-- Боковая панель меню -->
     <div id="side-menu">
@@ -33,10 +33,17 @@
 
     <!-- JavaScript -->
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('side-menu');
-            menu.classList.toggle('open'); // Открыть/закрыть меню
-        }
+        const menuButton = document.getElementById('menu-button');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuButton.addEventListener('click', () => {
+            sideMenu.classList.toggle('open'); // Открыть/закрыть меню
+            if (sideMenu.classList.contains('open')) {
+                menuButton.style.left = '260px'; // Смещаем кнопку вправо при открытом меню
+            } else {
+                menuButton.style.left = '20px'; // Возвращаем кнопку на место
+            }
+        });
     </script>
 </body>
 </html>
