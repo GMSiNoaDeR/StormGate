@@ -87,10 +87,22 @@ nav a:hover {
     height: 100vh;
     background-image: url('bg.png'); /* Используем тот же фон */
     background-size: cover;
-    background-position: center top;
+    background-position: center; /* Центрируем картинку */
     position: relative;
-    filter: blur(4px); /* Размытие фона */
-    animation: gradientPulse 20s ease-in-out infinite; /* Медленное дыхание света */
+    animation: gradientPulse 20s ease-in-out infinite, slideBackground 30s linear infinite; /* Медленное движение фона */
+}
+
+/* Медленное движение фона */
+@keyframes slideBackground {
+    0% {
+        background-position: 0 50%; /* Начальное положение */
+    }
+    50% {
+        background-position: 100% 50%; /* Конечное положение */
+    }
+    100% {
+        background-position: 0 50%; /* Возвращаем к начальному состоянию */
+    }
 }
 
 .hero h2 {
@@ -133,12 +145,12 @@ header, .hero, footer {
 /* Анимация медленного движения фона */
 @keyframes slideBackground {
     0% {
-        background-position: center left;
+        background-position: 0 50%; /* Начальное положение */
     }
     50% {
-        background-position: center right;
+        background-position: 100% 50%; /* Конечное положение */
     }
     100% {
-        background-position: center left;
+        background-position: 0 50%; /* Возвращаем к начальному состоянию */
     }
 }
