@@ -5,13 +5,13 @@ body {
     font-size: 1rem;
     padding: 0;
     margin: 0;
-    background-color: #1e1e2f;
+    background-color: rgb(42, 42, 59); /* Новый цвет фона */
     color: #e0e0e0;
 }
 
 /* Универсальный стиль для полупрозрачных фонов */
 .translucent-bg {
-    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон */
+    background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон на основе нового цвета */
     backdrop-filter: blur(5px); /* Эффект размытия */
     border-radius: 10px; /* Радиус углов для визуальной мягкости */
     padding: 10px; /* Отступы */
@@ -87,7 +87,7 @@ nav ul li a {
     width: 100%;
     padding: 10px;
     transition: color 0.3s ease;
-    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон пунктов меню */
+    background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон пунктов меню */
     border-radius: 5px;
 }
 
