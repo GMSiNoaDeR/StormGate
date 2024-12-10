@@ -7,23 +7,23 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('bg.png'); /* Устанавливаем фон */
-    background-size: cover; /* Фон покрывает весь экран */
+    background-size: cover; /* Покрываем весь экран, включая верх и низ */
     background-position: center center; /* Центрируем фон */
     background-repeat: no-repeat; /* Фон не повторяется */
-    background-attachment: fixed; /* Фон фиксируется на месте */
-    animation: slideBackground 60s linear infinite; /* Анимация для движения */
+    background-attachment: fixed; /* Фон фиксируется */
+    animation: slideBackground 180s linear infinite; /* Анимация с очень медленным движением */
 }
 
 /* Анимация движения фона влево-вправо */
 @keyframes slideBackground {
     0% {
-        background-position: 0% 50%; /* Начальное положение */
+        background-position: -20% 50%; /* Начальное положение за пределами левого края */
     }
     50% {
-        background-position: 100% 50%; /* Конечное положение */
+        background-position: 120% 50%; /* Плавное движение за пределы правого края */
     }
     100% {
-        background-position: 0% 50%; /* Возвращение к начальному положению */
+        background-position: -20% 50%; /* Возврат к начальному положению */
     }
 }
 
@@ -95,7 +95,7 @@ nav a:hover {
 
 /* Главная секция */
 .hero {
-    height: 100vh;
+    height: 100vh; /* Полная высота экрана */
     display: flex;
     justify-content: center;
     align-items: center;
