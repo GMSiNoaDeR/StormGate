@@ -2,61 +2,82 @@
 
 /* Общие стили для мобильных устройств */
 body {
-    font-size: 1rem; /* Базовый размер текста */
-    color: #e0e0e0; /* Цвет текста */
+    font-size: 1rem;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
-    background-image: url('bg.png'); /* Фоновое изображение */
-    background-size: cover; /* Фон покрывает весь экран */
-    background-position: center center; /* Центрируем фон */
-    background-repeat: no-repeat; /* Фон не повторяется */
-    background-attachment: center; /* Эффект параллакса */
-    animation: slideBackground 720s linear infinite; /* Очень медленное движение фона */
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Анимация для плавного движения фона */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150%; /* Расширение по ширине */
+    height: 150%; /* Расширение по высоте */
+    background-image: url('bg.png'); /* Фоновое изображение */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1; /* Отправляем фон за контент */
+    animation: slideBackground 720s linear infinite, parallaxMove 0.1s linear infinite;
+}
+
+/* Анимация движения влево-вправо */
 @keyframes slideBackground {
     0% {
-        background-position: -30% 50%; /* Начальная позиция фона */
+        transform: translateX(0);
     }
     50% {
-        background-position: 130% 50%; /* Движение в правую сторону */
+        transform: translateX(-10%);
     }
     100% {
-        background-position: -30% 50%; /* Возвращение к началу */
+        transform: translateX(0);
     }
 }
 
-/* Стили для заголовка и меню */
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для читаемости */
-    width: 100%;
+/* Скрипт параллакса */
+@keyframes parallaxMove {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(var(--scroll-y, 0) * 0.2px));
+    }
 }
 
-header .logo h1 {
-    font-size: 1.5rem;
-    color: #9c64a6;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
+/* Кнопка меню */
+.menu-button {
+    background-color: #9c64a6;
+    color: #ffffff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-self: flex-start;
 }
 
-/* Навигация */
+.menu-button:hover {
+    background-color: #7c4c9c;
+}
+
+/* Меню */
 nav {
     display: none; /* Скрываем меню по умолчанию */
     width: 100%;
-    background: rgba(0, 0, 0, 0.9); /* Темный фон меню */
+    background: rgba(0, 0, 0, 0.9);
 }
 
 nav.active {
-    display: block; /* Показываем меню при активации */
+    display: block;
 }
 
 nav ul {
     display: flex;
-    flex-direction: column; /* Вертикальное меню */
+    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     padding: 10px;
@@ -74,47 +95,4 @@ nav a {
 
 nav a:hover {
     color: #9c64a6;
-}
-
-/* Кнопка для открытия меню */
-.menu-button {
-    background-color: #9c64a6;
-    color: #ffffff;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    align-self: flex-start;
-}
-
-.menu-button:hover {
-    background-color: #7c4c9c;
-}
-
-/* Основная секция */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
-}
-
-.hero h2 {
-    font-size: 2rem;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Подвал */
-footer {
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 10px 0;
-    line-height: 1.4;
-    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для подвала */
-    color: #b0b0b0;
 }
