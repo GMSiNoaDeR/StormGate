@@ -1,58 +1,30 @@
-/* Общие стили */
+/* mobile-styles.css */
+
+/* Основной стиль для мобильных устройств */
 body {
     font-size: 1rem;
-    margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    color: #e0e0e0;
+    margin: 0;
     background-color: #1e1e2f;
+    color: #e0e0e0;
 }
 
-/* Параллакс фон */
-.hero {
+/* Стили для хедера */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
     position: relative;
-    height: 100vh;
-    overflow: hidden;
+    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон для хедера */
+    backdrop-filter: blur(5px); /* Эффект размытия */
 }
 
-.hero::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: -25%; /* Выходит за края экрана */
-    width: 150%; /* Ширина больше экрана */
-    height: 150%; /* Высота больше экрана */
-    background-image: url('bg.png'); /* Фоновое изображение */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1; /* Позади основного содержимого */
-    animation: slideBackground 720s linear infinite; /* Медленное движение */
-    will-change: transform; /* Оптимизация для производительности */
-}
-
-/* Медленное движение фона */
-@keyframes slideBackground {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-10%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Текст внутри hero */
-.hero h2 {
-    font-size: 1.8rem;
-    color: #fff;
+header .logo h1 {
+    font-size: 1.5rem;
+    color: #9c64a6;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1; /* Поверх фона */
 }
 
 /* Кнопка меню */
@@ -66,17 +38,18 @@ body {
     cursor: pointer;
     margin-bottom: 10px;
     align-self: flex-start;
+    box-shadow: 0 0 10px rgba(156, 100, 166, 0.7);
 }
 
 .menu-button:hover {
     background-color: #a8b5f3;
+    box-shadow: 0 0 15px rgba(168, 181, 243, 0.9);
 }
 
-/* Навигация */
+/* Скрытое меню */
 nav {
     display: none;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
 }
 
 nav.active {
@@ -86,15 +59,21 @@ nav.active {
 nav ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
-    padding: 10px;
+}
+
+nav ul li {
+    width: 100%;
 }
 
 nav a {
     font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+    width: 100%;
     color: #d1b1e0;
     text-decoration: none;
-    padding: 10px;
     transition: color 0.3s ease;
 }
 
@@ -102,12 +81,67 @@ nav a:hover {
     color: #9c64a6;
 }
 
+/* Секция hero с фоновым изображением */
+.hero {
+    height: 100vh;
+    background-image: url('bg.png'); /* Используем тот же фон */
+    background-size: cover; /* Фон растягивается на весь экран */
+    background-repeat: no-repeat;
+    background-position: center; /* Центрируем фон */
+    position: relative;
+    animation: slideBackground 360s linear infinite; /* Медленное движение фона влево-вправо */
+    overflow: hidden;
+}
+
+/* Медленное движение фона */
+@keyframes slideBackground {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
+}
+
+/* Текст внутри hero */
+.hero h2 {
+    font-size: 1.8rem;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
+    background-color: rgba(30, 30, 47, 0.8); /* Полупрозрачный фон для текста */
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Размытие фона */
+}
+
 /* Подвал */
 footer {
     font-size: 0.9rem;
     text-align: center;
     padding: 10px 0;
+    line-height: 1.4;
     color: #b0b0b0;
     background-color: #2a2a3b;
     border-top: 2px solid #9c64a6;
+}
+
+/* Параллакс-эффект при прокрутке */
+.hero {
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    /* Альтернативное решение для параллакса */
+    body {
+        overflow-x: hidden;
+    }
+    .hero {
+        background-attachment: scroll; /* Фиксируем проблему с background-attachment на мобильных */
+    }
 }
