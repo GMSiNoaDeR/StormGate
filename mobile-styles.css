@@ -7,23 +7,23 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('bg.png'); /* Устанавливаем фон */
-    background-size: 150%; /* Увеличенный размер фона */
+    background-size: cover; /* Фон покрывает весь экран */
     background-position: center center; /* Центрируем фон */
     background-repeat: no-repeat; /* Фон не повторяется */
     background-attachment: fixed; /* Фон фиксируется на месте */
-    animation: slideBackground 30s linear infinite; /* Анимация для движения */
+    animation: slideBackground 60s linear infinite; /* Анимация для движения */
 }
 
 /* Анимация движения фона влево-вправо */
 @keyframes slideBackground {
     0% {
-        background-position: -20% 50%; /* Начальное положение */
+        background-position: 0% 50%; /* Начальное положение */
     }
     50% {
-        background-position: 120% 50%; /* Конечное положение */
+        background-position: 100% 50%; /* Конечное положение */
     }
     100% {
-        background-position: -20% 50%; /* Возвращение к начальному положению */
+        background-position: 0% 50%; /* Возвращение к начальному положению */
     }
 }
 
