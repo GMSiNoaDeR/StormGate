@@ -3,26 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Штормовые Врата</title>
-    <!-- Добавляем параметр версии для предотвращения кэширования -->
     <link rel="stylesheet" href="styles.css?v=20241210">
 </head>
 <body>
-
-    <!-- Боковое меню -->
-    <div class="side-menu" id="sideMenu">
-        <a href="#">Главная</a>
-        <a href="#">О игре</a>
-        <a href="#">Правила</a>
-        <a href="#">Контакты</a>
+    <!-- Боковая панель -->
+    <div id="side-menu">
+        <div class="menu-header">
+            <h2>Меню</h2>
+        </div>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Правила игры</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
     </div>
 
-    <!-- Контент -->
-    <div class="content">
-        <button class="menu-button" id="menuButton">Меню</button>
-        <h1>Добро пожаловать в Штормовые Врата</h1>
-        <p>Здесь начинается ваше приключение!</p>
+    <!-- Основной контент -->
+    <div id="content">
+        <button id="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+        <div class="main-content">
+            <h1>Добро пожаловать в мир Штормовых Врат!</h1>
+            <p>Здесь вы найдете все о настольной ролевой игре "Штормовые Врата".</p>
+        </div>
     </div>
 
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Штормовые Врата</p>
+    </footer>
+
+    <script>
+        // Функция для открытия меню
+        function toggleMenu() {
+            const menu = document.getElementById("side-menu");
+            menu.classList.toggle("open");
+        }
+    </script>
 </body>
 </html>
