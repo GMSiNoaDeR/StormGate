@@ -1,0 +1,72 @@
+/* mobile-styles.css */
+
+/* Общие стили для мобильных устройств */
+body {
+    font-size: 1rem; /* Увеличенный базовый размер текста для удобства чтения */
+    padding: 0 10px; /* Добавляем отступы по бокам */
+}
+
+header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+/* Логотип и заголовок */
+header .logo h1 {
+    font-size: 1.5rem; /* Уменьшенный размер заголовка */
+    text-align: left;
+}
+
+/* Навигация */
+nav ul {
+    flex-direction: column; /* Меню становится вертикальным */
+    align-items: flex-start; /* Выравнивание пунктов по левому краю */
+    gap: 10px; /* Расстояние между пунктами меню */
+}
+
+nav ul li {
+    width: 100%;
+}
+
+nav ul li::after {
+    display: none; /* Убираем декоративную линию под пунктами */
+}
+
+nav a {
+    font-size: 1.2rem; /* Чуть больше текста для удобства клика */
+    padding: 10px;
+    display: block;
+    width: 100%;
+}
+
+/* Главная секция */
+.hero {
+    background-position: center top; /* Картинка фиксируется в верхней части */
+    filter: none; /* Убираем размытие */
+}
+
+.hero h2 {
+    font-size: 1.8rem; /* Уменьшаем размер заголовка */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Подвал */
+footer {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 1.4;
+}
+
+/* Убираем боковые отступы для контейнеров */
+header, .hero, footer {
+    width: 100%;
+}
+
+/* Опционально: скрываем дополнительные элементы для минималистичного вида */
+nav ul li:nth-child(2),
+nav ul li:nth-child(3) {
+    display: none; /* Пример скрытия элементов "О игре" и "Мир" на мобильных */
+}
