@@ -6,9 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Штормовые Врата</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="mobile-styles.css" media="(max-width: 768px)">
-
+    <script>
+        // Определяем устройство и подключаем соответствующий CSS
+        (function() {
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = isMobile ? 'mobile-styles.css' : 'styles.css';
+            document.head.appendChild(link);
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -21,7 +28,7 @@
                 <li><a href="#">О игре</a></li>
                 <li><a href="#">Мир</a></li>
                 <li><a href="#">Правила</a></li>
-                <li><a href="pages/spellcasting.html">Сотворить заклинания</a></li> <!-- Ссылка с учетом папки "pages" -->
+                <li><a href="pages/spellcasting.html">Сотворить заклинания</a></li>
             </ul>
         </nav>
     </header>
@@ -35,5 +42,7 @@
     <footer>
         <p>&copy; 2024 Штормовые Врата. Все права защищены.</p>
     </footer>
+
+    <script src="mbldsgn.js"></script>
 </body>
 </html>
