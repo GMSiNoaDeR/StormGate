@@ -2,10 +2,29 @@
 
 /* Общие стили для мобильных устройств */
 body {
-    font-size: 1rem; /* Увеличенный базовый размер текста для удобства чтения */
-    padding: 0 10px; /* Добавляем отступы по бокам */
-    background-color: #1e1e2f; /* Темный фон, как на десктопной версии */
+    font-size: 1rem; /* Базовый размер текста */
     color: #e0e0e0; /* Цвет текста */
+    margin: 0;
+    padding: 0;
+    background-image: url('bg.png'); /* Устанавливаем фон */
+    background-size: 150%; /* Увеличенный размер фона */
+    background-position: center center; /* Центрируем фон */
+    background-repeat: no-repeat; /* Фон не повторяется */
+    background-attachment: fixed; /* Фон фиксируется на месте */
+    animation: slideBackground 30s linear infinite; /* Анимация для движения */
+}
+
+/* Анимация движения фона влево-вправо */
+@keyframes slideBackground {
+    0% {
+        background-position: -20% 50%; /* Начальное положение */
+    }
+    50% {
+        background-position: 120% 50%; /* Конечное положение */
+    }
+    100% {
+        background-position: -20% 50%; /* Возвращение к начальному положению */
+    }
 }
 
 /* Логотип и заголовок */
@@ -13,56 +32,48 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 0;
-    position: relative;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для читаемости */
     width: 100%;
 }
 
-/* Логотип */
 header .logo h1 {
-    font-size: 1.5rem; /* Уменьшенный размер заголовка */
-    text-align: left;
-    color: #9c64a6; /* Цвет логотипа */
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6; /* Тот же эффект свечения */
+    font-size: 1.5rem;
+    color: #9c64a6;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6;
 }
 
 /* Навигация */
 nav {
-    display: none; /* Изначально скрытое меню */
+    display: none; /* Скрываем меню по умолчанию */
     width: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Темный фон для навигации */
 }
 
 nav.active {
-    display: block; /* Показывается, когда добавлен класс "active" */
+    display: block; /* Показываем меню при активации */
 }
 
 nav ul {
     display: flex;
-    flex-direction: column; /* Меню становится вертикальным */
-    align-items: flex-start; /* Выравнивание пунктов по левому краю */
-    gap: 10px; /* Расстояние между пунктами меню */
-}
-
-nav ul li {
-    width: 100%;
-}
-
-nav ul li::after {
-    display: none; /* Убираем декоративную линию под пунктами */
+    flex-direction: column; /* Вертикальное меню */
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
 }
 
 nav a {
-    font-size: 1.2rem; /* Чуть больше текста для удобства клика */
+    font-size: 1.2rem;
+    color: #d1b1e0;
+    text-decoration: none;
     padding: 10px;
     display: block;
     width: 100%;
-    color: #d1b1e0; /* Цвет ссылок */
-    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #9c64a6; /* Цвет ссылки при наведении */
+    color: #9c64a6;
 }
 
 /* Кнопка меню */
@@ -85,73 +96,25 @@ nav a:hover {
 /* Главная секция */
 .hero {
     height: 100vh;
-    background-image: url('bg.png'); /* Используем тот же фон */
-    background-size: 150%; /* Увеличиваем размер фона, чтобы выходил за края */
-    background-position: center center; /* Центрируем картинку */
-    background-attachment: fixed; /* Фон фиксируется при прокрутке */
-    position: relative;
-    animation: gradientPulse 20s ease-in-out infinite, slideBackground 30s linear infinite; /* Медленное движение фона */
-}
-
-/* Медленное движение фона */
-@keyframes slideBackground {
-    0% {
-        background-position: -10% 50%; /* Начальное положение */
-    }
-    50% {
-        background-position: 110% 50%; /* Конечное положение */
-    }
-    100% {
-        background-position: -10% 50%; /* Возвращаем к начальному состоянию */
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
 }
 
 .hero h2 {
-    font-size: 1.8rem; /* Уменьшаем размер заголовка */
+    font-size: 1.8rem;
     padding: 20px;
     text-align: center;
-    color: #fff;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
 }
 
 /* Подвал */
 footer {
     font-size: 0.9rem;
     text-align: center;
-    padding: 10px 0;
-    line-height: 1.4;
+    padding: 10px;
     color: #b0b0b0;
-    background-color: #2a2a3b;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для читаемости */
     border-top: 2px solid #9c64a6;
-}
-
-/* Убираем боковые отступы для контейнеров */
-header, .hero, footer {
-    width: 100%;
-}
-
-/* Анимация свечения фона */
-@keyframes gradientPulse {
-    0% {
-        filter: brightness(1.1); /* Немного увеличенная яркость */
-    }
-    50% {
-        filter: brightness(0.7); /* Яркость уменьшается */
-    }
-    100% {
-        filter: brightness(1.1); /* Яркость возвращается к увеличенному уровню */
-    }
-}
-
-/* Анимация медленного движения фона */
-@keyframes slideBackground {
-    0% {
-        background-position: -10% 50%; /* Начальное положение */
-    }
-    50% {
-        background-position: 110% 50%; /* Конечное положение */
-    }
-    100% {
-        background-position: -10% 50%; /* Возвращаем к начальному состоянию */
-    }
 }
