@@ -4,19 +4,26 @@
 body {
     font-size: 1rem; /* Увеличенный базовый размер текста для удобства чтения */
     padding: 0 10px; /* Добавляем отступы по бокам */
+    background-color: #1e1e2f; /* Темный фон, как на десктопной версии */
+    color: #e0e0e0; /* Цвет текста */
 }
 
+/* Логотип и заголовок */
 header {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 0;
     position: relative;
+    width: 100%;
 }
 
-/* Логотип и заголовок */
+/* Логотип */
 header .logo h1 {
     font-size: 1.5rem; /* Уменьшенный размер заголовка */
     text-align: left;
+    color: #9c64a6; /* Цвет логотипа */
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #9c64a6; /* Тот же эффект свечения */
 }
 
 /* Навигация */
@@ -30,6 +37,7 @@ nav.active {
 }
 
 nav ul {
+    display: flex;
     flex-direction: column; /* Меню становится вертикальным */
     align-items: flex-start; /* Выравнивание пунктов по левому краю */
     gap: 10px; /* Расстояние между пунктами меню */
@@ -48,6 +56,13 @@ nav a {
     padding: 10px;
     display: block;
     width: 100%;
+    color: #d1b1e0; /* Цвет ссылок */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #9c64a6; /* Цвет ссылки при наведении */
 }
 
 /* Кнопка меню */
@@ -69,15 +84,21 @@ nav a {
 
 /* Главная секция */
 .hero {
-    background-position: center top; /* Картинка фиксируется в верхней части */
-    filter: none; /* Убираем размытие */
-    animation: slideBackground 30s linear infinite; /* Медленное движение фона */
+    height: 100vh;
+    background-image: url('bg.png'); /* Используем тот же фон */
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    filter: blur(4px); /* Размытие фона */
+    animation: gradientPulse 20s ease-in-out infinite; /* Медленное дыхание света */
 }
 
 .hero h2 {
     font-size: 1.8rem; /* Уменьшаем размер заголовка */
     padding: 20px;
     text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
 }
 
 /* Подвал */
@@ -86,6 +107,9 @@ footer {
     text-align: center;
     padding: 10px 0;
     line-height: 1.4;
+    color: #b0b0b0;
+    background-color: #2a2a3b;
+    border-top: 2px solid #9c64a6;
 }
 
 /* Убираем боковые отступы для контейнеров */
@@ -93,10 +117,17 @@ header, .hero, footer {
     width: 100%;
 }
 
-/* Опционально: скрываем дополнительные элементы для минималистичного вида */
-nav ul li:nth-child(2),
-nav ul li:nth-child(3) {
-    display: none; /* Пример скрытия элементов "О игре" и "Мир" на мобильных */
+/* Анимация свечения фона */
+@keyframes gradientPulse {
+    0% {
+        filter: brightness(1.1); /* Немного увеличенная яркость */
+    }
+    50% {
+        filter: brightness(0.7); /* Яркость уменьшается */
+    }
+    100% {
+        filter: brightness(1.1); /* Яркость возвращается к увеличенному уровню */
+    }
 }
 
 /* Анимация медленного движения фона */
