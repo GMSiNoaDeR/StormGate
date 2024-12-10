@@ -1,2 +1,6 @@
-// JavaScript здесь минимален, так как наведение на меню реализовано через CSS.
-console.log("Всплывающее меню работает через hover в CSS");
+function openMenu() {
+    document.getElementById("side-menu").style.width = "250px";
+}
+function closeMenu() {
+    document.getElementById("side-menu").style.width = "0";
+}
