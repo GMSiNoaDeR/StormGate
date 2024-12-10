@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Кнопка вызова меню -->
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <button class="menu-button" id="menuButton" onclick="toggleMenu()">☰</button>
 
     <!-- Боковое меню -->
     <div class="side-menu" id="sideMenu">
@@ -31,16 +31,31 @@
     </footer>
 
     <script>
-        // Функция переключения бокового меню
+        // Переключение бокового меню
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
-            menu.classList.toggle('visible');
+            const button = document.getElementById('menuButton');
+            const isVisible = menu.classList.toggle('visible');
+            button.style.left = isVisible ? '260px' : '10px';
         }
 
-        // Действие кнопки "Открыть портал"
+        // Открытие портала
         function openPortal() {
             alert('Портал открыт! Добро пожаловать в мир приключений!');
         }
+
+        // Автоматическое открытие меню при наведении
+        document.addEventListener('mousemove', function (e) {
+            const menu = document.getElementById('sideMenu');
+            const button = document.getElementById('menuButton');
+            if (e.clientX < 50) {
+                menu.classList.add('visible');
+                button.style.left = '260px';
+            } else if (!menu.contains(e.target)) {
+                menu.classList.remove('visible');
+                button.style.left = '10px';
+            }
+        });
     </script>
 </body>
 </html>
