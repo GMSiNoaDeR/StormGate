@@ -127,13 +127,13 @@ nav ul li a:hover {
 /* Секция hero с фоновым изображением */
 .hero {
     height: 100vh;
-    background-image: url('bg.png'); /* Фоновая картинка по умолчанию */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
     animation: slideBackground 360s linear infinite; /* Медленное движение фона */
     overflow: hidden;
+}
 }
 
 /* Медленное движение фона */
@@ -174,10 +174,10 @@ footer {
     border-top: 2px solid #9c64a6;
 }
 
-/* Для страницы spellcasting */
-body.spellcasting .hero {
-    background-image: url('bgspell.png'); /* Фон для страницы spellcasting */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+/* Для мобильных устройств - предполагаем, что фон будет изменяться */
+@media screen and (max-width: 768px) {
+    .hero {
+        /* Здесь будет подставляться фоновое изображение с помощью JS */
+        background-image: url('mobile_bg.png'); /* Фоновая картинка по умолчанию */
+    }
 }

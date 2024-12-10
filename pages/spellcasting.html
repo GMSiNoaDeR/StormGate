@@ -16,21 +16,6 @@
             link.href = isMobile ? '../mobile-styles.css' : '../styles.css';
             document.head.appendChild(link);
         })();
-
-        // Функция для изменения фона в зависимости от страницы
-        window.addEventListener('DOMContentLoaded', (event) => {
-            if (window.location.pathname.includes("spellcasting.html")) {
-                // Меняем фон на bgspell.png для страницы spellcasting
-                document.body.style.backgroundImage = "url('../bgspell.png')";
-            } else {
-                // Для других страниц, сохраняем фон как bg.png
-                document.body.style.backgroundImage = "url('../bg.png')";
-            }
-			
-        }
-		   if (window.location.pathname.includes("spellcasting.html")) {
-        document.body.classList.add("spellcasting");
-    });
     </script>
 </head>
 <body>
@@ -41,7 +26,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Главная</a></li>
+                <li><a href="../index.html">Главная</a></li>
                 <li><a href="#">О игре</a></li>
                 <li><a href="#">Мир</a></li>
                 <li><a href="#">Правила</a></li>
@@ -67,6 +52,19 @@
             KCodeWraith — Кодер Заклинаний и Хранитель Алгоритмов
         </small>
     </footer>
+
+    <!-- Вставка JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var pageName = window.location.pathname.split('/').pop().replace('.html', ''); // Извлекаем имя страницы
+            var heroSection = document.querySelector('.hero');
+
+            // Формируем путь к изображению на основе имени страницы
+            if (heroSection) {
+                heroSection.style.backgroundImage = `url('${pageName}_bg.png')`; // Устанавливаем фоновое изображение
+            }
+        });
+    </script>
 
     <script src="mbldsgn.js"></script>
 </body>
