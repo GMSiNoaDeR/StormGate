@@ -36,11 +36,20 @@ header .logo h1 {
     0%, 90%, 100% {
         text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6;
     }
+    5% {
+        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Вспышка молнии */
+    }
     10% {
-        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6; /* Вспышка молнии */
+        text-shadow: 0 0 100px #ffffff, 0 0 200px #e0e0ff, 0 0 300px #9c64a6; /* Интенсивная вспышка */
+    }
+    12% {
+        text-shadow: 0 0 150px #ffffff, 0 0 300px #e0e0ff, 0 0 400px #9c64a6; /* Сильная вспышка */
     }
     15% {
-        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Сияние после вспышки */
+        text-shadow: 0 0 80px #ffffff, 0 0 160px #e0e0ff, 0 0 240px #9c64a6; /* Постепенное ослабление */
+    }
+    20% {
+        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Дальнейшее ослабление */
     }
 }
 
@@ -110,21 +119,8 @@ nav ul li a:hover {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    animation: slideBackground 360s linear infinite, parallaxEffect 30s linear infinite; /* Медленное движение фона и параллакс */
+    animation: slideBackground 360s linear infinite; /* Медленное движение фона */
     overflow: hidden;
-}
-
-/* Эффект параллакса */
-@keyframes parallaxEffect {
-    0% {
-        background-position: 0% center;
-    }
-    50% {
-        background-position: 50% center;
-    }
-    100% {
-        background-position: 0% center;
-    }
 }
 
 /* Медленное движение фона */
