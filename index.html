@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Штормовые Врата</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Кнопка меню -->
-    <div class="menu-button" onclick="toggleMenu()">☰</div>
-    
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
     <!-- Боковое меню -->
     <div class="side-menu" id="sideMenu">
         <a href="index.html">Главная</a>
@@ -19,16 +19,16 @@
     </div>
 
     <!-- Основной контент -->
-    <div class="main-content">
+    <main class="main-content">
         <h1>Добро пожаловать в мир Штормовых Врат!</h1>
         <p>Исследуйте мир магии и приключений!</p>
         <button class="magic-button" onclick="openPortal()">Открыть портал</button>
-    </div>
+    </main>
 
     <!-- Нижняя панель -->
-    <div class="footer">
-        [COPYRIGHT] $POWERED_BY$
-    </div>
+    <footer class="footer">
+        <p>© 2024 Штормовые Врата</p>
+    </footer>
 
     <script>
         function toggleMenu() {
@@ -37,7 +37,7 @@
         }
 
         function openPortal() {
-            alert('Портал открыт!');
+            alert('Портал открыт! Добро пожаловать в новый мир!');
         }
     </script>
 </body>
