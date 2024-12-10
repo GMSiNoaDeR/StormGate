@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Кнопка меню -->
+    <!-- Кнопка вызова меню -->
     <button class="menu-button" onclick="toggleMenu()">☰</button>
 
     <!-- Боковое меню -->
     <div class="side-menu" id="sideMenu">
         <a href="index.html">Главная</a>
-        <a href="calculator.html">Калькулятор</a>
-        <a href="about.html">О нас</a>
+        <a href="calculator.html">Калькулятор заклинаний</a>
+        <a href="lore.html">История мира</a>
         <a href="contact.html">Контакты</a>
     </div>
 
     <!-- Основной контент -->
     <main class="main-content">
-        <h1>Добро пожаловать в мир Штормовых Врат!</h1>
-        <p>Исследуйте мир магии и приключений!</p>
+        <h1>Добро пожаловать в Штормовые Врата</h1>
+        <p>Исследуйте загадочный мир магии, приключений и древних тайн.</p>
         <button class="magic-button" onclick="openPortal()">Открыть портал</button>
     </main>
 
@@ -31,13 +31,15 @@
     </footer>
 
     <script>
+        // Функция переключения бокового меню
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
             menu.classList.toggle('visible');
         }
 
+        // Действие кнопки "Открыть портал"
         function openPortal() {
-            alert('Портал открыт! Добро пожаловать в новый мир!');
+            alert('Портал открыт! Добро пожаловать!');
         }
     </script>
 </body>
