@@ -1,8 +1,10 @@
-document.getElementById("menu-btn").addEventListener("click", () => {
-    const menu = document.getElementById("side-menu");
-    if (menu.style.left === "0px") {
-        menu.style.left = "-250px";
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
+
+menuBtn.addEventListener("click", () => {
+    if (sideMenu.style.left === "0px") {
+        sideMenu.style.left = "-300px";
     } else {
-        menu.style.left = "0px";
+        sideMenu.style.left = "0px";
     }
 });
