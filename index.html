@@ -8,9 +8,9 @@
 </head>
 <body>
     <!-- Кнопка вызова меню -->
-    <button id="menu-button" onclick="toggleMenu()">Меню</button>
+    <button id="menu-button" onclick="toggleMenu()">☰ Меню</button>
 
-    <!-- Скрытая панель с меню -->
+    <!-- Боковая панель меню -->
     <div id="side-menu">
         <ul>
             <li><a href="#">Главная</a></li>
@@ -20,21 +20,22 @@
         </ul>
     </div>
 
-    <!-- Основное содержимое сайта -->
+    <!-- Основное содержимое -->
     <div class="content">
         <h1>Добро пожаловать в Штормовые Врата</h1>
-        <p>Здесь начинается ваша магическая история...</p>
+        <p>Исследуйте магические миры и наслаждайтесь приключениями!</p>
     </div>
 
-    <!-- Футер с копирайтом -->
+    <!-- Футер -->
     <div class="footer">
         <p>&copy; 2024 Штормовые Врата | <a href="#">Политика конфиденциальности</a></p>
     </div>
 
+    <!-- JavaScript -->
     <script>
         function toggleMenu() {
-            var menu = document.getElementById('side-menu');
-            menu.classList.toggle('open'); // Открытие или закрытие меню
+            const menu = document.getElementById('side-menu');
+            menu.classList.toggle('open'); // Открыть/закрыть меню
         }
     </script>
 </body>
