@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Штормовые Врата</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Магический сайт</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu-button" id="menu-btn">☰</div>
-    <div class="side-menu" id="side-menu">
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#calculator">Калькулятор заклинаний</a></li>
-        </ul>
+
+    <!-- Кнопка для открытия меню -->
+    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Боковая панель -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
     </div>
+
     <div class="content">
-        <header>
-            <h1>Штормовые Врата</h1>
-            <p>Добро пожаловать в мир магии и приключений!</p>
-        </header>
-        <main>
-            <section>
-                <h2>Что вы найдете здесь?</h2>
-                <p>Откройте для себя магический мир, где каждое заклинание имеет цену, а каждая дверь ведет в неизведанное.</p>
-            </section>
-        </main>
+        <h1>Добро пожаловать на наш сайт!</h1>
+        <p>Это магический сайт с современным дизайном.</p>
     </div>
-    <footer>
-        <p>© 2024 Штормовые Врата</p>
-    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
