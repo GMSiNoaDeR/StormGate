@@ -2,39 +2,39 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #3a5da7, #7b99d4);
-    color: white;
+    font-family: 'Georgia', serif;
+    background: radial-gradient(circle at center, #4e5d94, #2a3b68);
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-/* Кнопка меню */
+/* Кнопка вызова меню */
 .menu-button {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: #5f74c1;
+    background-color: #364f9c;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 18px;
     font-size: 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50%;
     z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Боковое меню */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -260px;
     width: 250px;
     height: 100%;
-    background-color: #1c2752;
+    background-color: rgba(38, 50, 98, 0.95);
     padding-top: 60px;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease;
     z-index: 999;
 }
 
@@ -48,31 +48,45 @@ body {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .side-menu a:hover {
-    background-color: #5f74c1;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Основной контент */
 .main-content {
     text-align: center;
     padding: 20px;
+    margin-top: 60px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #dde1ff;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.main-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .magic-button {
-    background-color: #6b83f2;
+    background-color: #6274f2;
     color: white;
     padding: 15px 30px;
     font-size: 20px;
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .magic-button:hover {
-    background-color: #8ea5f6;
+    background-color: #8192f7;
 }
 
 /* Нижняя панель */
@@ -80,10 +94,10 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #1c2752;
+    background-color: rgba(38, 50, 98, 0.95);
     color: white;
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.3);
 }
