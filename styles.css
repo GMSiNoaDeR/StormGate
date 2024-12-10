@@ -1,91 +1,69 @@
-/* Общие стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Основные стили */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #3a4f96, #4a6fc8);
+    background: #2c3e50;
     color: white;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Стили для бокового меню */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
+.side-menu {
     height: 100%;
     width: 250px;
-    background-color: #2a3b7d;
-    transition: 0.3s;
-    padding-top: 60px;
-    z-index: 1000;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    background-color: #3a4f69;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
-.sidebar.open {
+.side-menu a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: #5c6e8e;
+}
+
+.content {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #5c6e8e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #3a4f69;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-button {
+        left: 10px;
+    }
+}
+
+/* При наведении на левую область экрана - меню открывается */
+body:hover .side-menu {
     left: 0;
 }
 
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 15px;
-    text-align: center;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.sidebar ul li a:hover {
-    background-color: #3b4e9f;
-}
-
-/* Кнопка меню */
-.menu-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-/* Стиль главного контента */
-.main-content {
-    max-width: 900px;
-    text-align: center;
-    color: white;
-    z-index: 10;
-}
-
-.main-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.main-content p {
-    font-size: 18px;
-    margin-top: 10px;
+body:hover .menu-button {
+    left: 250px; /* Смещаем кнопку, чтобы не перекрывала меню */
 }
