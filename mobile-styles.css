@@ -28,40 +28,40 @@ header .logo h1 {
     display: inline-block;
     background-color: rgba(42, 42, 59, 0.8); /* Полупрозрачный фон */
     border-radius: 10px;
-    animation: lightningFlash 10s infinite ease-in-out; /* Медленная и редкая вспышка молнии */
+    animation: lightningFlash 6s infinite ease-in-out; /* Быстрая вспышка молнии */
 }
 
 /* Анимация молнии с эффектом искр */
 @keyframes lightningFlash {
     0%, 90%, 100% {
-        text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6;
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #9c64a6; /* Легкое свечение */
     }
     5% {
-        text-shadow: 0 0 30px #ffffff, 0 0 60px #e0e0ff, 0 0 100px #9c64a6, 0 0 120px #2f93c4; /* Вспышка молнии с голубыми оттенками */
+        text-shadow: 0 0 50px #ffffff, 0 0 100px #80bfff, 0 0 150px #2f93c4, 0 0 200px #007acc; /* Яркая голубая вспышка */
         animation: sparks 0.5s ease-out forwards; /* Искры при вспышке */
-        animation-delay: 0.5s; /* Искры немного отстают от вспышки */
+        animation-delay: 0.2s; /* Искры немного отстают от вспышки */
     }
     10% {
-        text-shadow: 0 0 100px #ffffff, 0 0 200px #a0c8f5, 0 0 300px #9c64a6; /* Интенсивная вспышка */
+        text-shadow: 0 0 80px #ffffff, 0 0 160px #a0c8f5, 0 0 240px #80bfff; /* Очень яркая вспышка */
     }
     12% {
-        text-shadow: 0 0 150px #ffffff, 0 0 300px #80b6e5, 0 0 400px #9c64a6; /* Сильная вспышка */
+        text-shadow: 0 0 120px #ffffff, 0 0 250px #80bfff, 0 0 350px #007acc; /* Сильная голубая вспышка */
     }
     15% {
-        text-shadow: 0 0 80px #ffffff, 0 0 160px #a0c8f5, 0 0 240px #9c64a6; /* Постепенное ослабление */
+        text-shadow: 0 0 100px #ffffff, 0 0 200px #a0c8f5, 0 0 300px #2f93c4; /* Постепенное ослабление */
     }
     20% {
-        text-shadow: 0 0 50px #ffffff, 0 0 100px #e0e0ff, 0 0 150px #9c64a6; /* Дальнейшее ослабление */
+        text-shadow: 0 0 60px #ffffff, 0 0 120px #e0e0ff, 0 0 150px #9c64a6; /* Дальнейшее ослабление */
     }
 }
 
 /* Эффект искр */
 @keyframes sparks {
     0% {
-        box-shadow: 0 0 10px #e0e0ff, 0 0 20px #ffbbff, 0 0 30px #ffbbff; /* Искры молнии */
+        box-shadow: 0 0 10px #80bfff, 0 0 20px #ffffff, 0 0 30px #ffbbff; /* Искры молнии */
     }
     50% {
-        box-shadow: 0 0 30px #e0e0ff, 0 0 60px #ffffff, 0 0 100px #ffbbff; /* Разлетающиеся искры */
+        box-shadow: 0 0 30px #80bfff, 0 0 60px #ffffff, 0 0 100px #ffbbff; /* Разлетающиеся искры */
     }
     100% {
         box-shadow: 0 0 0px #ffbbff, 0 0 0px #ffffff; /* Исчезновение искр */
