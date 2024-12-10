@@ -6,28 +6,28 @@ body {
     color: #e0e0e0; /* Цвет текста */
     margin: 0;
     padding: 0;
-    background-image: url('bg.png'); /* Устанавливаем фон */
-    background-size: cover; /* Покрываем весь экран, включая верх и низ */
+    background-image: url('bg.png'); /* Фоновое изображение */
+    background-size: cover; /* Фон покрывает весь экран */
     background-position: center center; /* Центрируем фон */
     background-repeat: no-repeat; /* Фон не повторяется */
-    background-attachment: fixed; /* Фон фиксируется */
-    animation: slideBackground 180s linear infinite; /* Анимация с очень медленным движением */
+    background-attachment: center; /* Эффект параллакса */
+    animation: slideBackground 720s linear infinite; /* Очень медленное движение фона */
 }
 
-/* Анимация движения фона влево-вправо */
+/* Анимация для плавного движения фона */
 @keyframes slideBackground {
     0% {
-        background-position: -20% 50%; /* Начальное положение за пределами левого края */
+        background-position: -30% 50%; /* Начальная позиция фона */
     }
     50% {
-        background-position: 120% 50%; /* Плавное движение за пределы правого края */
+        background-position: 130% 50%; /* Движение в правую сторону */
     }
     100% {
-        background-position: -20% 50%; /* Возврат к начальному положению */
+        background-position: -30% 50%; /* Возвращение к началу */
     }
 }
 
-/* Логотип и заголовок */
+/* Стили для заголовка и меню */
 header {
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ header .logo h1 {
 nav {
     display: none; /* Скрываем меню по умолчанию */
     width: 100%;
-    background: rgba(0, 0, 0, 0.9); /* Темный фон для навигации */
+    background: rgba(0, 0, 0, 0.9); /* Темный фон меню */
 }
 
 nav.active {
@@ -76,7 +76,7 @@ nav a:hover {
     color: #9c64a6;
 }
 
-/* Кнопка меню */
+/* Кнопка для открытия меню */
 .menu-button {
     background-color: #9c64a6;
     color: #ffffff;
@@ -90,21 +90,21 @@ nav a:hover {
 }
 
 .menu-button:hover {
-    background-color: #a8b5f3;
+    background-color: #7c4c9c;
 }
 
-/* Главная секция */
+/* Основная секция */
 .hero {
-    height: 100vh; /* Полная высота экрана */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #ffffff;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #a8b5f3;
 }
 
 .hero h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding: 20px;
     text-align: center;
 }
@@ -113,8 +113,8 @@ nav a:hover {
 footer {
     font-size: 0.9rem;
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
+    line-height: 1.4;
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для подвала */
     color: #b0b0b0;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон для читаемости */
-    border-top: 2px solid #9c64a6;
 }
