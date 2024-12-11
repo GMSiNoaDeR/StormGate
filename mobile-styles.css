@@ -1,13 +1,10 @@
 /* Основной стиль для мобильных устройств */
 body {
+    font-size: 1rem;
+    padding: 0;
     margin: 0;
-    font-family: 'Cormorant Garamond', serif;
-    background: #1e1e2f url('bg.png') no-repeat center center fixed;
-    background-size: cover; /* Растягиваем изображение, чтобы оно покрывало весь экран */
-    background-repeat: no-repeat; /* Отключаем повторение */
-    background-attachment: fixed; /* Фон остается на месте при прокрутке */
+    background-color: rgb(42, 42, 59); /* Темный фон */
     color: #e0e0e0;
-    overflow-x: hidden;
 }
 
 /* Логотип и заголовок */
@@ -133,6 +130,7 @@ nav ul li a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url('bg.png');
     position: relative;
     animation: slideBackground 360s linear infinite; /* Медленное движение фона */
     overflow: hidden;
