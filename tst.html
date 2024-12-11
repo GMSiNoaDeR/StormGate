@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заклинания</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .input-field {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(16px);
+        }
+
+        input:checked + .slider {
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5c5cff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3b3be3;
+        }
+
+        button:active {
+            box-shadow: 0 0 20px rgba(92, 92, 255, 0.6);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .switch-label {
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Калькулятор стоимости заклинания</h1>
+
+    <div class="form-container">
+        <div class="input-field">
+            <label for="range">Дальность (метры):</label>
+            <input type="number" id="range" placeholder="Введите дальность в метрах">
+            <label class="switch">
+                <input type="checkbox" id="onSelf">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">На себя</span>
+        </div>
+
+        <div class="input-field" id="durationField">
+            <label for="duration">Время действия (раунды):</label>
+            <input type="number" id="duration" placeholder="Введите время действия в раундах">
+            <label class="switch">
+                <input type="checkbox" id="instant">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">Моментально</span>
+        </div>
+
+        <div class="input-field">
+            <label for="area">Область действия:</label>
+            <select id="area">
+                <option value="none">Нет</option>
+                <option value="rectangular">Прямоугольник</option>
+                <option value="sphere">Сфера</option>
+                <option value="cylinder">Цилиндр</option>
+                <option value="cone">Конус</option>
+                <option value="line">Линия</option>
+            </select>
+        </div>
+
+        <div id="areaInputs"></div>
+
+        <!-- Новый блок для урона -->
+        <div class="input-field">
+            <label for="damageToggle">Наносит урон:</label>
+            <label class="switch">
+                <input type="checkbox" id="damageToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div id="damageFields" style="display: none;">
+            <div class="input-field">
+                <label for="damageAmount">Количество урона:</label>
+                <input type="number" id="damageAmount" placeholder="Введите количество урона">
+            </div>
+
+            <div class="input-field">
+                <label for="damageType">Тип урона:</label>
+                <select id="damageType">
+                    <option value="piercing">Колющий</option>
+                    <option value="bludgeoning">Дробящий</option>
+                    <option value="slashing">Рубящий</option>
+                    <option value="acid">Кислотный</option>
+                    <option value="psychic">Психический</option>
+                    <option value="poison">Ядовитый</option>
+                    <option value="fire">Огненный</option>
+                    <option value="cold">Ледяной</option>
+                    <option value="electric">Электрический</option>
+                    <option value="sonic">Звуковой</option>
+                    <option value="necrotic">Некротический</option>
+                    <option value="radiant">Святой</option>
+                    <option value="true">Истинный</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="calculate">Рассчитать стоимость</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('onSelf').addEventListener('change', updateRange);
+        document.getElementById('instant').addEventListener('change', updateDuration);
+        document.getElementById('area').addEventListener('change', updateAreaInputs);
+        document.getElementById('damageToggle').addEventListener('change', toggleDamageFields);
+        document.getElementById('calculate').addEventListener('click', calculateCost);
+
+        function updateRange() {
+            const rangeInput = document.getElementById('range');
+            if (document.getElementById('onSelf').checked) {
+                rangeInput.value = 0;
+                rangeInput.style.display = 'none'; // Скрыть поле ввода дальности
+            } else {
+                rangeInput.style.display = 'block';
+            }
+        }
+
+        function updateDuration() {
+            const durationInput = document.getElementById('duration');
+            const durationField = document.getElementById('durationField');
+            if (document.getElementById('instant').checked) {
+                durationInput.value = 0;
+                durationInput.style.display = 'none'; // Скрыть только поле ввода времени
+            } else {
+                durationInput.style.display = 'block'; // Показать поле ввода времени
+            }
+        }
+
+        function updateAreaInputs() {
+            const area = document.getElementById('area').value;
+            const areaInputsDiv = document.getElementById('areaInputs');
+            areaInputsDiv.innerHTML = '';
+
+            if (area === 'rectangular') {
+                areaInputsDiv.innerHTML = `
+                    <label for="length">Длина (м):</label>
+                    <input type="number" id="length" placeholder="Введите длину" class="input-field">
+                    <label for="width">Ширина (м):</label>
+                    <input type="number" id="width" placeholder="Введите ширину" class="input-field">
+                    <label for="height">Высота (м):</label>
+                    <input type="number" id="height" placeholder="Введите высоту" class="input-field">
+                `;
+            } else if (area === 'sphere') {
+                areaInputsDiv.innerHTML = `
+                    <label for="radius">Радиус (м):</label>
+                    <input type="number" id="radius" placeholder="Введите радиус" class="input-field">
+                `;
+            } else if (area === 'cylinder') {
+                areaInputsDiv.innerHTML = `
+                    <label for="cylinderHeight">Высота (м, минимум 3):</label>
+                    <input type="number" id="cylinderHeight" placeholder="Введите высоту" class="input-field">
+                    <label for="cylinderRadius">Радиус основания (м):</label>
+                    <input type="number" id="cylinderRadius" placeholder="Введите радиус" class="input-field">
+                `;
+            } else if (area === 'cone') {
+                areaInputsDiv.innerHTML = `
+                    <label for="coneHeight">Высота (м):</label>
+                    <input type="number" id="coneHeight" placeholder="Введите высоту" class="input-field">
+                    <label for="coneRadius">Радиус основания (м):</label>
+                    <input type="number" id="coneRadius" placeholder="Введите радиус" class="input-field">
+                `;
+            } else if (area === 'line') {
+                areaInputsDiv.innerHTML = `
+                    <label for="lineLength">Длина линии (м):</label>
+                    <input type="number" id="lineLength" placeholder="Введите длину" class="input-field">
+                `;
+            }
+        }
+
+        function toggleDamageFields() {
+            const damageFields = document.getElementById('damageFields');
+            damageFields.style.display = document.getElementById('damageToggle').checked ? 'block' : 'none';
+        }
+
+        function calculateCost() {
+            const range = parseFloat(document.getElementById('range').value) || 0;
+            const duration = parseFloat(document.getElementById('duration').value) || 0;
+            const area = document.getElementById('area').value;
+            const damageAmount = parseFloat(document.getElementById('damageAmount').value) || 0;
+
+            let areaCost = 0;
+            let areaFactor = 0;
+            
+            if (area === 'rectangular') {
+                const length = parseFloat(document.getElementById('length').value) || 0;
+                const width = parseFloat(document.getElementById('width').value) || 0;
+                const height = parseFloat(document.getElementById('height').value) || 0;
+                areaFactor = length * width * height; // Прямоугольник
+            } else if (area === 'sphere') {
+                const radius = parseFloat(document.getElementById('radius').value) || 0;
+                areaFactor = Math.pow(radius, 3) * Math.PI * 4 / 3; // Сфера
+            } else if (area === 'cylinder') {
+                const cylinderHeight = parseFloat(document.getElementById('cylinderHeight').value) || 0;
+                const cylinderRadius = parseFloat(document.getElementById('cylinderRadius').value) || 0;
+                areaFactor = Math.PI * Math.pow(cylinderRadius, 2) * cylinderHeight; // Цилиндр
+            } else if (area === 'cone') {
+                const coneHeight = parseFloat(document.getElementById('coneHeight').value) || 0;
+                const coneRadius = parseFloat(document.getElementById('coneRadius').value) || 0;
+                areaFactor = Math.PI * Math.pow(coneRadius, 2) * coneHeight / 3; // Конус
+            } else if (area === 'line') {
+                const lineLength = parseFloat(document.getElementById('lineLength').value) || 0;
+                areaFactor = lineLength; // Линия
+            }
+
+            const damageType = document.getElementById('damageType').value;
+            const totalCost = range + duration + areaFactor + damageAmount;
+
+            document.getElementById('result').innerText = 
+                `Стоимость: ${totalCost} (Урон: ${damageAmount} (${damageType}))`;
+        }
+    </script>
+</body>
+</html>
