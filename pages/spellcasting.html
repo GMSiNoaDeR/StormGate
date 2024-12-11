@@ -16,6 +16,16 @@
             link.href = isMobile ? '../mobile-styles.css' : '../styles.css';
             document.head.appendChild(link);
         })();
+// Функция для установки фонового изображения на основе имени страницы
+document.addEventListener('DOMContentLoaded', function() {
+    var pageName = window.location.pathname.split('/').pop().replace('.html', ''); // Извлекаем имя страницы
+    var heroSection = document.querySelector('.hero');
+
+    // Формируем путь к изображению на основе имени страницы
+    if (heroSection) {
+        heroSection.style.backgroundImage = `url('${pageName}_bg.png')`; // Устанавливаем фоновое изображение
+    }
+});
     </script>
 </head>
 <body>
@@ -37,7 +47,7 @@
 
     <section class="hero">
         <div class="overlay">
-            <h2>Врата открыты... Приготовьтесь к путешествию</h2>
+            <h2>Приготовьтесь создавать удивительные заклинания</h2>
         </div>
     </section>
 
@@ -66,6 +76,6 @@
         });
     </script>
 
-    <script src="mbldsgn.js"></script>
+    <script src="../mbldsgn.js"></script>
 </body>
 </html>
