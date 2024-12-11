@@ -178,6 +178,6 @@ footer {
 @media screen and (max-width: 768px) {
     .hero {
         /* Здесь будет подставляться фоновое изображение с помощью JS */
-        background-image: url('mobile_bg.png'); /* Фоновая картинка по умолчанию */
+        background-image: url('bg.png'); /* Фоновая картинка по умолчанию */
     }
 }
