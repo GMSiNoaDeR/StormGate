@@ -5,6 +5,8 @@ body {
     margin: 0;
     background-color: rgb(42, 42, 59); /* Темный фон */
     color: #e0e0e0;
+	 min-height: 100vh;
+    width: 100%;
 }
 
 /* Логотип и заголовок */
@@ -12,7 +14,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
     width: 100%;
     position: relative;
 }
@@ -126,52 +127,61 @@ nav ul li a:hover {
 
 /* Секция hero с фоновым изображением */
 .hero {
-    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('bg.png');
     position: relative;
     animation: slideBackground 360s linear infinite; /* Медленное движение фона */
-    overflow: hidden;
-}
+    display: flex; /* Используем flex для центрирования содержимого */
+    flex-direction: column; /* Содержимое размещается вертикально */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    width: 100%;
+    margin-bottom: 50px; /* Добавляем отступ снизу */
+	 height: 100%;
+
 }
 
 .iframe-container {
-    display: flex;
+    width: 100%;
+    flex-grow: 1; /* Заставляем контейнер расти и занимать доступное пространство */
+    display: flex; /* Центрируем iframe */
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    margin: 0;
+    height: 100%; /* Растягиваем на всю высоту родителя */
+
 }
+
 
 iframe {
-    width: 80%;
-    height: 80vh;
-    max-width: 1200px;
-    max-height: 80vh;
-    min-width: 600px;
-    min-height: 400px;
+    width: 100%;
+    height: 100%; /* Занимает всю высоту контейнера */
+    border: none;
+    background: transparent;
+    display: block;
+    overflow: hidden; /* Отключаем прокрутку внутри iframe */
+    overscroll-behavior: contain; /* Предотвращаем дополнительную прокрутку */
+    scrollbar-width: none; /* Убираем видимость скроллбара (для Firefox) */
+pointer-events: auto; /* Разрешаем взаимодействие */
+    touch-action: manipulation; /* Убираем скроллинг, но оставляем взаимодействие */
 }
 
-/* Медиазапросы для мобильных устройств */
+/* Убираем скроллбар в iframe для WebKit */
+iframe::-webkit-scrollbar {
+    display: none;
+}
+
+/* Для мобильных устройств */
 @media (max-width: 768px) {
-    iframe {
-        width: 95%;  /* Уменьшаем ширину iframe на маленьких экранах */
-        height: 70vh; /* Немного уменьшаем высоту */
-        min-width: 0; /* Убираем ограничение на минимальную ширину */
-        min-height: 300px; /* Минимальная высота для мобильных */
+     iframe {
+        width: 100%;     /* Полная ширина на мобильных устройствах */
+        height: 100%;    /* Полная высота на мобильных устройствах */
     }
-}
 
-@media (max-width: 480px) {
-    iframe {
-        width: 100%; /* На очень маленьких экранах используем полную ширину */
-        height: 60vh; /* Уменьшаем высоту */
-        min-height: 250px; /* Минимальная высота */
-    }
+    .iframe-container {
+        height: auto;    /* Даем контейнеру калькулятора гибкость на мобильных */
+    
 }
 
 
@@ -204,13 +214,11 @@ iframe {
 
 /* Подвал */
 footer {
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 10px 0;
-    line-height: 1.4;
-    color: #b0b0b0;
-    background-color: #2a2a3b;
-    border-top: 2px solid #9c64a6;
+  flex-shrink: 0; /* Футер не будет сжиматься */
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  text-align: center;
 }
 
 /* Для мобильных устройств - предполагаем, что фон будет изменяться */
